@@ -10,5 +10,7 @@ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisc
 Assets used
 
 Line Awesome font from ICONS8 - https://icons8.com - see /fonts/line-awesome-LICENSE.txt
+
 Montserrat font - see /font/Montserrat-LICENSE.txt
+
 RobotoMono font - see /font/RobotoMono-LICENSE.txt
