@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">100</defaultcontrol>
+    <onload>SetFocus(9005,$INFO[Window(home).Property(menufocus)])</onload>
+    <onload>SetFocus(100)</onload>
+
+    <controls>
+        <control type="group">
+            <top>0</top>
+            <left>0</left>
+
+            <!-- Fake image for background blur -->
+            <control type="image" id="100000">
+                <left>-3000</left>
+                <top>-3000</top>
+                <width>10</width>
+                <height>10</height>
+                <texture background="true">$VAR[BackgroundImageWithoutFallback]</texture>
+            </control>
+
+            <!-- Hidden button to show full image -->
+            <control type="button" id="99">
+                <left>-1000</left>
+                <top>-1000</top>
+                <ondown>8</ondown>
+                <onup>8</onup>
+            </control>
+
+            <!-- InfoDialog background -->
+            <include>BlurredBackground</include>
+
+            <control type="group">
+                <animation effect="slide" start="0,0" end="0,-740" time="150" condition="Control.HasFocus(51)">Conditional</animation>
+                <control type="image">
+                    <!-- <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(51)">Conditional</animation> -->
+                    <!-- <animation effect="fade" end="100" start="0" time="200" delay="200" condition="!Control.HasFocus(51)">Conditional</animation> -->
+                    <left>224</left>
+                    <top>0</top>
+                    <width>3616</width>
+                    <height>2032</height>
+                    <fadetime>400</fadetime>
+                    <aspectratio scalediffuse="true">scale</aspectratio>
+                    <texture background="true" diffuse="masks/DialogVideoInfoBackgroundMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
+                </control>
+
+                <control type="group">
+                    <visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+
+                    <control type="group">
+
+                        <control type="image">
+                            <left>296</left>
+                            <bottom>84</bottom>
+                            <width>796</width>
+                            <height>1146</height>
+                            <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>344</left>
+                            <bottom>132</bottom>
+                            <width>700</width>
+                            <height>1050</height>
+                            <texture background="true" diffuse="masks/DialogVideoInfoPosterMask.png">$VAR[PosterVar]</texture>
+                        </control>
+
+                        <control type="label">
+                            <left>1300</left>
+                            <top>1560</top>
+                            <width>1600</width>
+                            <height>40</height>
+                            <font>LargeTitle</font>
+                            <textcolor>TextBright</textcolor>
+                            <align>left</align>
+                            <aligny>top</aligny>
+                            <label>$VAR[DialogVideoInfoMainLabel]</label>
+                        </control>
+                        <control type="button" id="98">
+                            <left>1268</left>
+                            <top>1680</top>
+                            <width>1600</width>
+                            <height>348</height>
+                            <font>ItemLabelSecondary</font>
+                            <wrapmultiline>true</wrapmultiline>
+                            <textcolor>TextBright</textcolor>
+                            <align>left</align>
+                            <aligny>top</aligny>
+                            <scroll>false</scroll>
+                            <texturefocus colordiffuse="Primary" border="32">masks/128x128r16.png</texturefocus>
+                            <!-- <label>$INFO[ListItem.Plot]</label> -->
+                            <onleft>100</onleft>
+                            <ondown>51</ondown>
+                            <onclick>RunScript(script.embuary.helper,action=textviewer,header='$VAR[DialogVideoInfoMainLabel]',message='$ESCINFO[ListItem.Plot]')</onclick>
+                        </control>
+                        <control type="textbox" id="98">
+                            <left>1300</left>
+                            <top>1698</top>
+                            <width>1536</width>
+                            <height>310</height>
+                            <font>ItemLabelSecondary</font>
+                            <wrapmultiline>true</wrapmultiline>
+                            <textcolor>TextBright</textcolor>
+                            <align>left</align>
+                            <aligny>top</aligny>
+                            <label>$INFO[ListItem.Plot]</label>
+                        </control>
+
+                        <control type="label">
+                            <left>1116</left>
+                            <top></top>
+                        </control>
+
+                        <control type="grouplist" id="100">
+                            <left>1116</left>
+                            <bottom>132</bottom>
+                            <width>160</width>
+                            <height>440</height>
+                            <itemgap>40</itemgap>
+                            <onup>99</onup>
+                            <ondown>51</ondown>
+                            <align>center</align>
+                            <!-- Play button -->
+                            <control type="button" id="8">
+                                <visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isVideo]</visible>
+                                <left>0</left>
+                                <top>0</top>
+                                <width>120</width>
+                                <height>120</height>
+                                <textoffsetx>16</textoffsetx>
+                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                <font>ButtonIcon</font>
+                                <textcolor>TextDark</textcolor>
+                                <include>ButtonDefaults</include>
+                                <label>&#xf2be;</label>
+                                <onleft>back</onleft>
+                                <onright>98</onright>
+                            </control>
+                            <!-- Refresh button -->
+                            <control type="button" id="6">
+                                <visible>Control.IsEnabled(6)</visible>
+                                <left>0</left>
+                                <top>160</top>
+                                <width>120</width>
+                                <height>120</height>
+                                <textoffsetx>16</textoffsetx>
+                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                <font>ButtonIcon</font>
+                                <textcolor>TextDark</textcolor>
+                                <include>ButtonDefaults</include>
+                                <label>&#xf2d5;</label>
+                                <onleft>back</onleft>
+                                <onright>98</onright>
+                            </control>
+                            <!-- Art button -->
+                            <control type="button" id="10">
+                                <left>0</left>
+                                <top>320</top>
+                                <width>120</width>
+                                <height>120</height>
+                                <textoffsetx>16</textoffsetx>
+                                <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                <font>ButtonIcon</font>
+                                <textcolor>TextDark</textcolor>
+                                <include>ButtonDefaults</include>
+                                <label>&#xf2b5;</label>
+                                <onleft>back</onleft>
+                                <onright>98</onright>
+                            </control>
+                        </control>
+                    </control>
+
+                    <control type="button" id="51" description="Cast List Control">
+                        <left>-1000</left>
+                        <top>-1000</top>
+                        <onback>100</onback>
+                        <onup>100</onup>
+                        <onleft>Control.Move(50,-1)</onleft>
+                        <onright>Control.Move(50,1)</onright>
+                        <ondown>789</ondown>
+                        <onclick>SetProperty(actorimage,$INFO[Container(50).ListItem.Art(thumb)],home)</onclick>
+                        <onclick>RunScript(script.embuary.info,call=person,query=$INFO[Container(50).ListItem.Label])</onclick>
+                    </control>
+
+                    <control type="group">
+                        <animation effect="slide" start="0,0" end="0,-60" time="22.5" delay="127.5" condition="Control.HasFocus(51)">Conditional</animation>
+
+                        <control type="label">
+                            <left>344</left>
+                            <top>2144</top>
+                            <width>1200</width>
+                            <height>60</height>
+                            <aligny>top</aligny>
+                            <font>ItemLabel</font>
+                            <textcolor>TextBright</textcolor>
+                            <label>Cast</label>
+                        </control>
+
+                        <control type="list" id="50">
+                            <left>224</left>
+                            <right>0</right>
+                            <top>2120</top>
+                            <height>750</height>
+
+                            <onleft>50</onleft>
+                            <onright>50</onright>
+                            <onup>100</onup>
+
+                            <pagecontrol>60</pagecontrol>
+                            <preloaditems>2</preloaditems>
+                            <orientation>horizontal</orientation>
+
+                            <itemlayout width="402" height="750">
+                                <control type="group">
+                                    <top>72</top>
+                                    <left>72</left>
+                                    <include content="ActorLayout">
+                                        <param name="Focused" value="false" />
+                                    </include>
+                                </control>
+                            </itemlayout>
+                            <focusedlayout width="402" height="750">
+                                <control type="group">
+                                    <top>72</top>
+                                    <left>72</left>
+                                    <include content="ActorLayout">
+                                        <param name="Focused" value="true" />
+                                    </include>
+                                </control>
+                            </focusedlayout>
+                        </control>
+
+                    </control>
+
+                </control>
+            </control>
+        </control>
+
+        <!-- Fullscreen image -->
+        <control type="image">
+            <animation type="Conditional" condition="Control.HasFocus(99)">
+                <effect type="fade" start="0" end="100" time="300" />
+                <!-- <effect type="zoom" start="94" end="100" center="1920,0" time="200" /> -->
+            </animation>
+            <animation type="Conditional" condition="!Control.HasFocus(99)">
+                <effect type="fade" start="100" end="0" time="300" />
+                <!-- <effect type="zoom" start="100" end="94" center="1920,0" time="200" /> -->
+            </animation>
+
+            <left>0</left>
+            <top>0</top>
+            <width>3840</width>
+            <height>2160</height>
+            <fadetime>400</fadetime>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true">$VAR[BackgroundImage]</texture>
+        </control>
+
+        <!-- Include main menu -->
+        <control type="group">
+            <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(99)">Conditional</animation>
+            <include>MainMenu</include>
+        </control>
+    </controls>
+</window>

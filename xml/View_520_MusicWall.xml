@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="View_520_MusicWall">
+        <control type="group">
+            <visible>Control.IsVisible(520)</visible>
+
+            <control type="panel" id="520">
+                <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(genres) | Container.Content(years)</visible>
+                <left>296</left>
+                <width>3472</width>
+                <top>0</top>
+                <bottom>0</bottom>
+                <onleft>9005</onleft>
+                <onright>9050</onright>
+                <onup>520</onup>
+                <ondown>520</ondown>
+                <onback condition="$EXP[contentIsMusic] + String.IsEqual(Container.Content,Window(home).Property(musiccategory))">9005</onback>
+                <onback condition="String.IsEqual(Container.FolderName,Files)">9005</onback>
+
+                <preloaditems>2</preloaditems>
+                <viewtype label="Music Wall">icon</viewtype>
+
+                <!-- Artists -->
+                <itemlayout width="578" height="616" condition="Container.Content(artists)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="MusicWallLayout">
+                            <param name="Focused" value="false" />
+                            <param name="ControlID" value="520" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="578" height="616" condition="Container.Content(artists)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="MusicWallLayout">
+                            <param name="Focused" value="true" />
+                            <param name="ControlID" value="520" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <!-- Artists -->
+                <itemlayout width="578" height="656" condition="Container.Content(albums)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="MusicWallLayout">
+                            <param name="Focused" value="false" />
+                            <param name="ControlID" value="520" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="578" height="656" condition="Container.Content(albums)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="MusicWallLayout">
+                            <param name="Focused" value="true" />
+                            <param name="ControlID" value="520" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <!-- Categorys -->
+                <itemlayout width="868" height="320" condition="Container.Content(genres) | Container.Content(years)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="CategoryLayout4">
+                            <param name="ItemColor" value="MenuItemBackground" />
+                            <param name="TextColor" value="TextDim" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="868" height="320" condition="Container.Content(genres) | Container.Content(years)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="CategoryLayout4">
+                            <param name="ItemColor" value="Primary" />
+                            <param name="TextColor" value="TextDark" />
+                        </include>
+                    </control>
+                </focusedlayout>
+            </control>
+
+            <!-- <include>JumpToLetterVertical</include> -->
+        </control>
+    </include>
+</includes>

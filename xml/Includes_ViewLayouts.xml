@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Poster layout (6) -->
+    <include name="PosterLayout6">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="50" tween="sine" center="289,409" />
+                <effect type="zoom" end="96.25" time="150" tween="sine" delay="100" center="289,409" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>578</width>
+                <height>818</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>594</width>
+                <height>834</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus($PARAM[ControlID]) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>498</width>
+                <height>738</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main poster image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>482</width>
+                <height>722</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/PosterMask482x722r24.png">$VAR[PosterVar]</texture>
+            </control>
+            <!-- Unwatched marker layer -->
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[Focused]</visible>
+                <right>48</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/UnwatchedSelected96x96.png</texture>
+            </control>
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + !$PARAM[Focused]</visible>
+                <right>48</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/Unwatched96x96.png</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="group">
+                <visible>Container.Content(actors)</visible>
+                <control type="label">
+                    <visible>!$PARAM[Focused]</visible>
+                    <left>48</left>
+                    <width>482</width>
+                    <top>788</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>ItemLabel</font>
+                    <textcolor>TextDim</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <label>$INFO[ListItem.label]</label>
+                </control>
+                <control type="label">
+                    <visible>$PARAM[Focused]</visible>
+                    <left>48</left>
+                    <width>482</width>
+                    <top>788</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>ItemLabel</font>
+                    <textcolor>TextBright</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <label>$INFO[ListItem.label]</label>
+                </control>
+            </control>
+            <control type="label">
+                <visible>$PARAM[Focused] + String.IsEqual(Container.SortMethod,Title)</visible>
+                <left>48</left>
+                <width>482</width>
+                <top>788</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.Title]</label>
+            </control>
+            <control type="group">
+                <visible>!String.IsEqual(Container.SortMethod,Title)</visible>
+                <include>ItemLabelSortMethod</include>
+            </control>
+            <!-- Progress bar layer -->
+            <control type="progress">
+                <left>64</left>
+                <top>706</top>
+                <width>450</width>
+                <height>48</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground450.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>ListItem.PercentPlayed</info>
+                <visible>!Integer.IsEqual(ListItem.PercentPlayed,0) + Container.Content(movies)</visible>
+            </control>
+        </control>
+    </include>
+
+    <!-- Poster layout (7) -->
+    <include name="PosterLayout7">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="50" tween="sine" center="248,348" />
+                <effect type="zoom" end="96.25" time="150" tween="sine" delay="100" center="248,348" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>496</width>
+                <height>696</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>512</width>
+                <height>712</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus($PARAM[ControlID]) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>416</width>
+                <height>616</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main poster image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>400</width>
+                <height>600</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/PosterMask400x600r24.png">$VAR[PosterVar]</texture>
+            </control>
+            <!-- Unwatched marker layer -->
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[Focused]</visible>
+                <right>48</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/UnwatchedSelected96x96.png</texture>
+            </control>
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + !$PARAM[Focused]</visible>
+                <right>48</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/Unwatched96x96.png</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="group">
+                <visible>Container.Content(actors)</visible>
+                <control type="label">
+                    <visible>!$PARAM[Focused]</visible>
+                    <left>48</left>
+                    <width>400</width>
+                    <top>666</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>ItemLabel</font>
+                    <textcolor>TextDim</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <label>$INFO[ListItem.label]</label>
+                </control>
+                <control type="label">
+                    <visible>$PARAM[Focused]</visible>
+                    <left>48</left>
+                    <width>400</width>
+                    <top>666</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>ItemLabel</font>
+                    <textcolor>TextBright</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <label>$INFO[ListItem.label]</label>
+                </control>
+            </control>
+            <control type="label">
+                <visible>$PARAM[Focused] + String.IsEqual(Container.SortMethod,Title)</visible>
+                <left>48</left>
+                <width>400</width>
+                <top>666</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.Title]</label>
+            </control>
+            <control type="group">
+                <visible>!String.IsEqual(Container.SortMethod,Title)</visible>
+                <include>ItemLabelSortMethod</include>
+            </control>
+            <!-- Progress bar layer -->
+            <control type="progress">
+                <left>64</left>
+                <top>706</top>
+                <width>450</width>
+                <height>48</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground450.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>ListItem.PercentPlayed</info>
+                <visible>!Integer.IsEqual(ListItem.PercentPlayed,0) + Container.Content(movies)</visible>
+            </control>
+        </control>
+    </include>
+
+    <!-- Category layout (4) -->
+    <include name="CategoryLayout4">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="100" tween="sine" center="auto" />
+                <effect type="zoom" end="96" time="200" tween="sine" delay="150" center="auto" />
+            </animation>
+            <!-- Shadow layer -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>868</width>
+                <height>320</height>
+                <texture background="true" border="100" colordiffuse="a0ffffff">masks/Shadow256x256r24.png</texture>
+            </control>
+            <!-- Background layer -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>772</width>
+                <height>224</height>
+                <texture background="true" border="32" colordiffuse="$PARAM[ItemColor]">masks/128x128r24.png</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="textbox">
+                <left>48</left>
+                <top>48</top>
+                <width>772</width>
+                <height>224</height>
+                <font>MenuItem</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <wrapmultiline>true</wrapmultiline>
+                <textcolor>$PARAM[TextColor]</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- Landscale layout (4) -->
+    <include name="LandscapeLayout4">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="50" tween="sine" center="434,265" />
+                <effect type="zoom" end="96.25" time="150" tween="sine" delay="100" center="434,265" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>868</width>
+                <height>530</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>884</width>
+                <height>546</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus($PARAM[ControlID]) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>788</width>
+                <height>450</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main landscape image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>772</width>
+                <height>434</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/LandscapeMask772x434r24.png">$VAR[LandscapeImageVar]</texture>
+            </control>
+            <!-- Unwatched marker layer -->
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[Focused] + !ListItem.IsFolder</visible>
+                <right>48</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/UnwatchedSelected96x96.png</texture>
+            </control>
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + !$PARAM[Focused] + !ListItem.IsFolder</visible>
+                <right>48</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/Unwatched96x96.png</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="label">
+                <visible>$PARAM[Focused]</visible>
+                <left>48</left>
+                <top>500</top>
+                <width>772</width>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.label]</label>
+            </control>
+            <control type="label">
+                <visible>!$PARAM[Focused]</visible>
+                <left>48</left>
+                <top>500</top>
+                <width>772</width>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.label]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- Music square layout (6)-->
+    <include name="MusicWallLayout">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="106" time="50" tween="sine" center="579,347" />
+                <effect type="zoom" end="94.34" time="150" tween="sine" delay="100" center="579,347" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>578</width>
+                <height>578</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>594</width>
+                <height>594</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus($PARAM[ControlID]) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>498</width>
+                <height>498</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main poster image -->
+            <control type="image">
+                <visible>String.IsEqual(MusicPlayer.Album,ListItem.label) | String.IsEqual(MusicPlayer.Artist,ListItem.label)</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>482</width>
+                <height>482</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" colordiffuse="ff808080" diffuse="masks/MusicWallMask482x482r24.png">$VAR[MusicWallImageVar]</texture>
+            </control>
+            <control type="image">
+                <visible>!String.IsEqual(MusicPlayer.Album,ListItem.label) + !String.IsEqual(MusicPlayer.Artist,ListItem.label)</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>482</width>
+                <height>482</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/MusicWallMask482x482r24.png">$VAR[MusicWallImageVar]</texture>
+            </control>
+            <!-- Playing icon layer -->
+            <control type="image">
+                <visible>String.IsEqual(MusicPlayer.Album,ListItem.label) | String.IsEqual(MusicPlayer.Artist,ListItem.label)</visible>
+                <left>80</left>
+                <top>80</top>
+                <width>418</width>
+                <height>418</height>
+                <texture>general/EQ.gif</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="label">
+                <visible>$PARAM[Focused]</visible>
+                <left>48</left>
+                <width>482</width>
+                <top>548</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.label]</label>
+            </control>
+            <control type="label">
+                <visible>!$PARAM[Focused]</visible>
+                <left>48</left>
+                <width>482</width>
+                <top>548</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.label]</label>
+            </control>
+            <!-- Album year layer -->
+            <control type="label">
+                <visible>Container.Content(albums)</visible>
+                <left>48</left>
+                <width>482</width>
+                <top>600</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabelSecondary</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.year]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- Music compact layout (5) -->
+    <include name="MusicCompact5">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="100" tween="sine" center="auto" />
+                <effect type="zoom" end="96" time="200" tween="sine" delay="150" center="auto" />
+            </animation>
+            <!-- Shadow layer -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>694</width>
+                <height>240</height>
+                <texture background="true" border="100" colordiffuse="a0ffffff">masks/Shadow256x256r24.png</texture>
+            </control>
+            <!-- Background layer -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>598</width>
+                <height>144</height>
+                <texture background="true" border="32" colordiffuse="$PARAM[ItemColor]">masks/128x128r24.png</texture>
+            </control>
+            <!-- Image layer -->
+            <control type="image">
+                <visible>String.IsEqual(MusicPlayer.Album,ListItem.label) | String.IsEqual(MusicPlayer.Artist,ListItem.label)</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>144</width>
+                <height>144</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" colordiffuse="ff808080" diffuse="masks/SquareMask144x144r24.png">$VAR[MusicWallImageVar]</texture>
+            </control>
+            <control type="image">
+                <visible>!String.IsEqual(MusicPlayer.Album,ListItem.label) + !String.IsEqual(MusicPlayer.Artist,ListItem.label)</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>144</width>
+                <height>144</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/SquareMask144x144r24.png">$VAR[MusicWallImageVar]</texture>
+            </control>
+            <!-- Playing icon layer -->
+            <control type="image">
+                <visible>String.IsEqual(MusicPlayer.Album,ListItem.label) | String.IsEqual(MusicPlayer.Artist,ListItem.label)</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>144</width>
+                <height>144</height>
+                <texture>general/EQ.gif</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="textbox">
+                <left>192</left>
+                <top>48</top>
+                <width>454</width>
+                <height>144</height>
+                <font>ItemLabel</font>
+                <align>center</align>
+                <aligny>center</aligny>
+                <wrapmultiline>true</wrapmultiline>
+                <textcolor>$PARAM[TextColor]</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+            </control>
+        </control>
+    </include>
+
+    <!-- Episode wall basic layout -->
+    <include name="EpisodeWallLayout">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="106" time="50" tween="sine" center="579,347" />
+                <effect type="zoom" end="94.34" time="150" tween="sine" delay="100" center="579,347" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>1158</width>
+                <height>694</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>1174</width>
+                <height>710</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus(510) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>1078</width>
+                <height>614</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main poster image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>1062</width>
+                <height>598</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/LandscapeMask1062x598r24.png">$VAR[LandscapeImageVar]</texture>
+            </control>
+            <!-- Unwatched marker layer -->
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[Focused]</visible>
+                <right>46</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/UnwatchedSelected96x96.png</texture>
+            </control>
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + !$PARAM[Focused]</visible>
+                <right>46</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/Unwatched96x96.png</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="label">
+                <visible>Container.Content(episodes)</visible>
+                <visible>$PARAM[Focused]</visible>
+                <left>48</left>
+                <width>1062</width>
+                <top>662</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
+            </control>
+            <control type="label">
+                <visible>Container.Content(episodes)</visible>
+                <visible>!$PARAM[Focused]</visible>
+                <left>48</left>
+                <width>1062</width>
+                <top>662</top>
+                <height>60</height>
+                <align>center</align>
+                <font>ItemLabel</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
+            </control>
+            <!-- Progress bar layer -->
+            <control type="progress">
+                <left>64</left>
+                <top>706</top>
+                <width>450</width>
+                <height>48</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground450.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>ListItem.PercentPlayed</info>
+                <visible>!Integer.IsEqual(ListItem.PercentPlayed,0) + Container.Content(movies)</visible>
+            </control>
+        </control>
+    </include>
+
+    <!-- Episode wall extended layout -->
+    <include name="EpisodeWallExtendedLayout">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="106" time="50" tween="sine" center="579,347" />
+                <effect type="zoom" end="94.34" time="150" tween="sine" delay="100" center="579,347" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>1158</width>
+                <height>1052</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>1174</width>
+                <height>710</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>598</top>
+                <width>1158</width>
+                <height>454</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <!-- Background layer focused -->
+            <control type="image">
+                <visible>Control.HasFocus(511) + $PARAM[Focused]</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>1062</width>
+                <height>956</height>
+                <texture colordiffuse="e0303030" border="40">masks/LandscapeMask1062x598r24.png</texture>
+            </control>
+            <!-- Background layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>48</left>
+                <top>48</top>
+                <width>1062</width>
+                <height>956</height>
+                <texture colordiffuse="e0303030" border="40">masks/LandscapeMask1062x598r24.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus(511) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>1078</width>
+                <height>614</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main poster image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>1062</width>
+                <height>598</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/LandscapeMask1062x598r24.png">$VAR[LandscapeImageVar]</texture>
+            </control>
+            <!-- Unwatched marker layer -->
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + $PARAM[Focused]</visible>
+                <right>46</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/UnwatchedSelected96x96.png</texture>
+            </control>
+            <control type="image">
+                <visible>Integer.IsEqual(ListItem.PlayCount,0) + !$PARAM[Focused]</visible>
+                <right>46</right>
+                <top>48</top>
+                <width>96</width>
+                <height>96</height>
+                <texture colordiffuse="Primary">masks/Unwatched96x96.png</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="label">
+                <visible>$PARAM[Focused]</visible>
+                <left>72</left>
+                <width>1030</width>
+                <top>662</top>
+                <height>60</height>
+                <align>left</align>
+                <font>ItemLabel</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
+            </control>
+            <control type="label">
+                <visible>!$PARAM[Focused]</visible>
+                <left>72</left>
+                <width>1030</width>
+                <top>662</top>
+                <height>60</height>
+                <align>left</align>
+                <font>ItemLabel</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
+            </control>
+            <!-- Info layer -->
+            <control type="label">
+                <visible>$PARAM[Focused]</visible>
+                <left>72</left>
+                <width>1030</width>
+                <top>720</top>
+                <height>60</height>
+                <align>left</align>
+                <font>InfoLine</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.Duration(mins),, mins]$VAR[VideoResolution]$VAR[AudioCodec]$VAR[AudioChannels]</label>
+            </control>
+            <control type="label">
+                <visible>$PARAM[Focused]</visible>
+                <left>72</left>
+                <right>72</right>
+                <top>720</top>
+                <height>60</height>
+                <align>right</align>
+                <font>InfoLine</font>
+                <textcolor>TextBright</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.Premiered]</label>
+            </control>
+            <control type="label">
+                <visible>!$PARAM[Focused]</visible>
+                <left>72</left>
+                <width>1030</width>
+                <top>720</top>
+                <height>60</height>
+                <align>left</align>
+                <font>InfoLine</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.Duration(mins),, mins]$VAR[VideoResolution]$VAR[AudioCodec]$VAR[AudioChannels]</label>
+            </control>
+            <control type="label">
+                <visible>!$PARAM[Focused]</visible>
+                <left>72</left>
+                <right>72</right>
+                <top>720</top>
+                <height>60</height>
+                <align>right</align>
+                <font>InfoLine</font>
+                <textcolor>TextDim</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.Premiered]</label>
+            </control>
+            <!-- Plot layer -->
+            <control type="textbox">
+                <visible>$PARAM[Focused]</visible>
+                <left>72</left>
+                <width>1030</width>
+                <top>776</top>
+                <height>216</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <font>PlotText</font>
+                <wrapmultiline>true</wrapmultiline>
+                <textcolor>TextMid</textcolor>
+                <label>$INFO[ListItem.Plot]</label>
+            </control>
+            <control type="textbox">
+                <visible>!$PARAM[Focused]</visible>
+                <left>72</left>
+                <width>1030</width>
+                <top>776</top>
+                <height>216</height>
+                <align>left</align>
+                <aligny>top</aligny>
+                <font>PlotText</font>
+                <wrapmultiline>true</wrapmultiline>
+                <textcolor>TextDim</textcolor>
+                <label>$INFO[ListItem.Plot]</label>
+            </control>
+            <!-- Progress bar layer -->
+            <control type="progress">
+                <left>64</left>
+                <top>582</top>
+                <width>1030</width>
+                <height>48</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground1030.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>ListItem.PercentPlayed</info>
+                <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
+            </control>
+        </control>
+    </include>
+
+    <!-- Actor layout -->
+    <include name="ActorLayout">
+        <control type="group">
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="50" tween="sine" center="217,301" />
+                <effect type="zoom" end="96.25" time="150" tween="sine" delay="100" center="217,301" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>434</width>
+                <height>602</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>$PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>450</width>
+                <height>618</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus(51) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>354</width>
+                <height>522</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main poster image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>338</width>
+                <height>506</height>
+                <aspectratio scalediffuse="false">scale</aspectratio>
+                <texture background="true" diffuse="masks/PosterMask338x506r24.png" fallback="DefaultActorSolid.png">$VAR[PosterVar]</texture>
+            </control>
+            <!-- Label layer -->
+            <control type="group">
+                <visible>!$PARAM[Focused]</visible>
+                <control type="label">
+                    <left>48</left>
+                    <width>338</width>
+                    <top>572</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>ItemLabelSecondary</font>
+                    <textcolor>TextDim</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <label>$INFO[ListItem.label]</label>
+                </control>
+                <control type="label">
+                    <visible>!String.IsEmpty(ListItem.label2)</visible>
+                    <left>48</left>
+                    <width>338</width>
+                    <top>624</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>MenuItemSmall</font>
+                    <textcolor>TextDim</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <label>as $INFO[ListItem.label2]</label>
+                </control>
+            </control>
+            <control type="group">
+                <visible>$PARAM[Focused]</visible>
+                <control type="label">
+                    <left>48</left>
+                    <width>338</width>
+                    <top>572</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>ItemLabelSecondary</font>
+                    <textcolor>TextBright</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <scroll>true</scroll>
+                    <label>$INFO[ListItem.label]</label>
+                </control>
+                <control type="label">
+                    <visible>!String.IsEmpty(ListItem.label2)</visible>
+                    <left>48</left>
+                    <width>338</width>
+                    <top>624</top>
+                    <height>60</height>
+                    <align>center</align>
+                    <font>MenuItemSmall</font>
+                    <textcolor>TextDim</textcolor>
+                    <scrollsuffix>  •  </scrollsuffix>
+                    <scroll>true</scroll>
+                    <label>as $INFO[ListItem.label2]</label>
+                </control>
+            </control>
+        </control>
+    </include>
+</includes>

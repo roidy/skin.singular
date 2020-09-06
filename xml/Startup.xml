@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">10</defaultcontrol>
+
+    <onload>SetProperty(SingularLoaded,1,Home)</onload>
+    
+    <onload>SetProperty(moviecategory,movies,home)</onload>
+    <onload>SetProperty(tvshowcategory,tvshows,home)</onload>
+    <onload>SetProperty(musiccategory,artists,home)</onload>
+
+    <onload>Skin.SetString(BlurRadius,10)</onload>
+    <onload>Skin.SetString(ServiceInterval,0.2)</onload>
+    <onload condition="!Skin.HasSetting(BlurEnabled)">Skin.ToggleSetting(BlurEnabled)</onload>
+    <onload condition="!Skin.HasSetting(BlurEnabled)">RunScript(script.embuary.helper,action=restartservice)</onload>
+    <onload>ReplaceWindow($INFO[System.StartupWindow])</onload>
+    
+</window>

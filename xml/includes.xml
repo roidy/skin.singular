@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include file="defaults.xml" />
+
+    <include file="Includes_Animations.xml" />
+    <include file="Includes_Backgrounds.xml" />
+
+    <include file="Includes_MainMenu.xml" />
+    <include file="Includes_Menus.xml" />
+    <include file="Includes_SystemInfo.xml" />
+
+    <include file="Includes_JumpToLetter.xml" />
+
+    <include file="Includes_WidgetLandscapeLarge.xml" />
+    <include file="Includes_WidgetLandscapeSmall.xml" />
+    <include file="Includes_WidgetNowPlaying.xml" />
+
+    <include file="View_50_List.xml" />
+    <include file="View_500_PosterWallLarge.xml" />
+    <include file="View_501_PosterWallSmall.xml" />
+    <include file="View_502_LandscapeWall.xml" />
+    <include file="View_510_EpisodeWallBasic.xml" />
+    <include file="View_511_EpisodeWallExtended.xml" />
+    <include file="View_520_MusicWall.xml" />
+    <include file="View_521_MusicCompact.xml" />
+
+    <include file="Includes_ViewLayouts.xml" />
+
+    <include file="variables.xml" />
+
+    <expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
+    <expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
+    <expression name="isTVShow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
+    <expression name="isSeason">Container.Content(seasons) | String.IsEqual(ListItem.DBTYPE,season)</expression>
+    <expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
+    <expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
+    <expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
+    <expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
+    <expression name="isActor">String.IsEqual(ListItem.DBTYPE,actor)</expression>
+    <expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
+    <expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
+    <expression name="isInfoDialog">Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)</expression>
+    <expression name="contentIsMovies">[Container.Content(movies) | String.Contains(Container.FolderPath,movies)]</expression>
+    <expression name="contentIsTVShows">[Container.Content(tvshows) | String.Contains(Container.FolderPath,tvshows)]</expression>
+    <expression name="contentIsMusic">String.Contains(Container.FolderPath,musicdb:)</expression>
+    <expression name="isSubCategory">Container.Content(genres) | Container.Content(studios) | Container.Content(directors) | Container.Content(years) | Container.Content(countries)</expression>
+
+    <!-- PlayerProcessInfo Label Helper -->
+    <include name="PlayerProcessInfo">
+        <control type="group">
+            <left>0</left>
+            <height>28</height>
+            <control type="label">
+                <left>0</left>
+                <width>240</width>
+                <height>28</height>
+                <align>right</align>
+                <aligny>center</aligny>
+                <font>Montserrat20</font>
+                <textcolor>TextDim</textcolor>
+                <label>$PARAM[label]  </label>
+            </control>
+            <control type="label">
+                <left>240</left>
+                <width>240</width>
+                <height>28</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <font>Montserrat20</font>
+                <textcolor>TextBright</textcolor>
+                <label>$PARAM[value]</label>
+            </control>
+        </control>
+    </include>
+
+    <include name="ItemLabelSortMethod">
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Year)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.Year]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Rating)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.Rating]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,My rating)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.UserRating]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,MPAA rating)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.MPAA]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Duration)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.Duration(mins),, mins]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Date added)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.DateAdded]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Play count)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.PlayCount]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Episodes)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.Property(NumEpisodes),, episodes]</label>
+        </control>
+        <control type="label">
+            <visible>String.IsEqual(Container.SortMethod,Last played)</visible>
+            <left>48</left>
+            <width>482</width>
+            <top>788</top>
+            <height>60</height>
+            <align>center</align>
+            <font>ItemLabel</font>
+            <textcolor>TextBright</textcolor>
+            <scrollsuffix>  •  </scrollsuffix>
+            <label>$INFO[ListItem.LastPlayed]</label>
+        </control>
+    </include>
+
+    <include name="MovieSubMenuOnClick">
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),movies)">SetFocus(22)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),sets)">SetFocus(23)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),genres)">SetFocus(24)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),studios)">SetFocus(25)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),actors)">SetFocus(26)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),directors)">SetFocus(27)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),years)">SetFocus(28)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),countries)">SetFocus(29)</onclick>
+        <onclick condition="String.IsEqual(Window(home).Property(moviecategory),4k)">SetFocus(30)</onclick>
+    </include>
+
+    <include name="TVShowSubMenuOnClick">
+        <onclick condition="[Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),tvshows)">SetFocus(22)</onclick>
+        <onclick condition="[Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),genres)">SetFocus(24)</onclick>
+        <onclick condition="[Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),studios)">SetFocus(25)</onclick>
+        <onclick condition="[Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),actors)">SetFocus(26)</onclick>
+        <onclick condition="[Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),years)">SetFocus(28)</onclick>
+    </include>
+
+    <include name="SubMenuOnLeft">
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),movies)">SetFocus(22)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),sets)">SetFocus(23)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),genres)">SetFocus(24)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),studios)">SetFocus(25)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),actors)">SetFocus(26)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),directors)">SetFocus(27)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),years)">SetFocus(28)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),countries)">SetFocus(29)</onleft>
+        <onleft condition="Container(9005).Position(1) + String.IsEqual(Window(home).Property(moviecategory),4k)">SetFocus(30)</onleft>
+
+        <onleft condition="Container(9005).Position(2) + [Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),tvshows)">SetFocus(22)</onleft>
+        <onleft condition="Container(9005).Position(2) + [Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),genres)">SetFocus(24)</onleft>
+        <onleft condition="Container(9005).Position(2) + [Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),studios)">SetFocus(25)</onleft>
+        <onleft condition="Container(9005).Position(2) + [Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),actors)">SetFocus(26)</onleft>
+        <onleft condition="Container(9005).Position(2) + [Container.Content(tvshows) | $EXP[isSubCategory] | Container.Content(actors)] + String.IsEqual(Window(home).Property(tvshowcategory),years)">SetFocus(28)</onleft>
+    </include>
+
+    <include name="ItemBackground">
+        <control type="image">
+            <left>$PARAM[Left]</left>
+            <top>$PARAM[Top]</top>
+            <width>$PARAM[Width]</width>
+            <height>$PARAM[Height]</height>
+            <texture colordiffuse="$PARAM[Color]" diffuse="$PARAM[Diffuse]">general/White.png</texture>
+        </control>
+    </include>
+
+
+    <include name="VerticalDivider">
+        <control type="image">
+            <top>$PARAM[value]</top>
+            <left>0</left>
+            <width>3840</width>
+            <height>2</height>
+            <texture colordiffuse="ffff0000">general/White.png</texture>
+        </control>
+    </include>
+
+    <include name="HorizontalDivider">
+        <control type="image">
+            <top>0</top>
+            <left>$PARAM[value]</left>
+            <width>2</width>
+            <height>2160</height>
+            <texture colordiffuse="ffff0000">general/White.png</texture>
+        </control>
+    </include>
+
+
+    <include name="ButtonDefaults">
+        <include>ButtonZoom</include>
+        <left>32</left>
+        <width>416</width>
+        <height>76</height>
+        <textoffsetx>30</textoffsetx>
+        <textcolor>TextDim</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <disabledcolor>TextDark</disabledcolor>
+        <aligny>center</aligny>
+        <align>center</align>
+        <pulseonselect>false</pulseonselect>
+    </include>
+
+    <include name="ButtonSettingsCategory">
+        <include>ButtonZoom</include>
+        <left>32</left>
+        <width>360</width>
+        <height>76</height>
+        <font>Montserrat34</font>
+        <textoffsetx>30</textoffsetx>
+        <aspectratio scalediffuse="true">keep</aspectratio>
+        <texturefocus colordiffuse="Primary">masks/MainMenuItemMask.png</texturefocus>
+        <textcolor>TextDim</textcolor>
+        <focusedcolor>TextBright</focusedcolor>
+        <aligny>center</aligny>
+        <pulseonselect>false</pulseonselect>
+    </include>
+
+    <include name="LibraryMenuButtonTemplate">
+        <animation effect="zoom" start="100" end="106" center="auto" time="100">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="100">UnFocus</animation>
+        <left>0</left>
+        <width>800</width>
+        <height>164</height>
+        <textcolor>TextBright</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <font>MenuItem</font>
+        <align>left</align>
+        <aligny>center</aligny>
+        <textoffsetx>64</textoffsetx>
+        <texturenofocus border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texturenofocus>
+        <texturefocus border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texturefocus>
+    </include>
+
+    <include name="CategoryMenuButtonTemplate">
+        <animation effect="zoom" start="100" end="106" center="auto" time="100">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="100">UnFocus</animation>
+        <left>0</left>
+        <width>600</width>
+        <height>164</height>
+        <textcolor>TextBright</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <font>MenuItem</font>
+        <align>left</align>
+        <aligny>center</aligny>
+        <textoffsetx>64</textoffsetx>
+        <texturenofocus border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texturenofocus>
+        <texturefocus border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texturefocus>
+    </include>
+
+    <include name="ContextButtonTemplate">
+        <animation effect="zoom" start="100" end="106" center="auto" time="100">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="100">UnFocus</animation>
+        <left>0</left>
+        <width>1032</width>
+        <height>164</height>
+        <textcolor>TextBright</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <font>MenuItem</font>
+        <align>center</align>
+        <aligny>center</aligny>
+        <texturenofocus border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texturenofocus>
+        <texturefocus border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texturefocus>
+    </include>
+
+    <include name="SettingButtonTemplate">
+        <animation effect="zoom" start="100,100" end="104,106" center="auto" time="100">Focus</animation>
+        <animation effect="zoom" start="104,106" end="100,100" center="auto" time="100">UnFocus</animation>
+        <width>920</width>
+        <height>164</height>
+        <textcolor>TextBright</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <font>MenuItem</font>
+        <textoffsetx>64</textoffsetx>
+        <align>left</align>
+        <aligny>center</aligny>
+        <texturenofocus border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texturenofocus>
+        <texturefocus border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texturefocus>
+    </include>
+
+    <include name="SettingCategoryButtonTemplate">
+        <animation effect="zoom" start="100,100" end="104,106" center="auto" time="100">Focus</animation>
+        <animation effect="zoom" start="104,106" end="100,100" center="auto" time="100">UnFocus</animation>
+        <width>1520</width>
+        <height>164</height>
+        <textcolor>TextBright</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <disabledcolor>TextMid</disabledcolor>
+        <font>ItemLabel</font>
+        <textoffsetx>64</textoffsetx>
+        <align>left</align>
+        <aligny>center</aligny>
+        <texturenofocus border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texturenofocus>
+        <texturefocus border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texturefocus>
+    </include>
+
+    <include name="DialogButtonDefaults">
+        <animation effect="zoom" start="100" end="106" center="auto" time="100">Focus</animation>
+        <animation effect="zoom" start="106" end="100" center="auto" time="100">UnFocus</animation>
+        <left>0</left>
+        <width>600</width>
+        <height>164</height>
+        <textcolor>TextBright</textcolor>
+        <focusedcolor>TextDark</focusedcolor>
+        <font>MenuItem</font>
+        <align>center</align>
+        <aligny>center</aligny>
+        <texturenofocus border="32" colordiffuse="MenuItemBackground">masks/Button128x128b16r16-5x06.png</texturenofocus>
+        <texturefocus border="32" colordiffuse="Primary">masks/Button128x128b16r16-5x06.png</texturefocus>
+    </include>
+
+    <include name="DialogSelectItemTemplate">
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1600</width>
+            <height>164</height>
+            <texture border="32" colordiffuse="$PARAM[ItemColor]">masks/Button128x128b16r16-5x06.png</texture>
+        </control>
+        <control type="label">
+            <visible>String.IsEmpty(ListItem.Label2)</visible>
+            <left>64</left>
+            <right>64</right>
+            <height>164</height>
+            <textcolor>$PARAM[ItemTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>MenuItem</font>
+            <align>center</align>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+            <visible>!String.IsEmpty(ListItem.Label2)</visible>
+            <left>64</left>
+            <right>64</right>
+            <top>24</top>
+            <height>66</height>
+            <textcolor>$PARAM[ItemTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>MenuItem</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+            <visible>!String.IsEmpty(ListItem.Label2)</visible>
+            <left>64</left>
+            <top>78</top>
+            <right>64</right>
+            <height>66</height>
+            <textcolor>$PARAM[ItemSecondaryTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>MenuItemSmall</font>
+            <align>center</align>
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Label2]</label>
+        </control>
+        <control type="label">
+            <left>64</left>
+            <right>64</right>
+            <height>164</height>
+            <align>right</align>
+            <textcolor>$PARAM[ItemTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>ButtonIcon</font>
+            <label>&#xf17b;</label>
+            <visible>ListItem.IsSelected</visible>
+        </control>
+    </include>
+
+    <include name="DialogSelectItemTemplateImage">
+        <control type="image">
+            <left>0</left>
+            <top>0</top>
+            <width>1600</width>
+            <height>204</height>
+            <texture border="32" colordiffuse="$PARAM[ItemColor]">masks/Button128x128b16r16-5x06.png</texture>
+        </control>
+        <control type="image">
+            <left>24</left>
+            <top>24</top>
+            <width>156</width>
+            <height>156</height>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <texture diffuse="masks/172x172r16.png">$VAR[DialogSelectArtwork]</texture>
+        </control>
+        <control type="label">
+            <visible>String.IsEmpty(ListItem.Label2)</visible>
+            <left>224</left>
+            <right>64</right>
+            <height>204</height>
+            <textcolor>$PARAM[ItemTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>MenuItem</font>
+            <align>Left</align>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+            <visible>!String.IsEmpty(ListItem.Label2)</visible>
+            <left>224</left>
+            <right>64</right>
+            <height>160</height>
+            <textcolor>$PARAM[ItemTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>MenuItem</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Label]</label>
+        </control>
+        <control type="label">
+            <visible>!String.IsEmpty(ListItem.Label2)</visible>
+            <left>224</left>
+            <top>108</top>
+            <right>64</right>
+            <height>66</height>
+            <textcolor>$PARAM[ItemSecondaryTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>MenuItemSmall</font>
+            <align>left</align>
+            <aligny>center</aligny>
+            <label>$INFO[ListItem.Label2]</label>
+        </control>
+        <control type="label">
+            <left>224</left>
+            <right>64</right>
+            <height>204</height>
+            <align>right</align>
+            <textcolor>$PARAM[ItemTextColor]</textcolor>
+            <selectedcolor>PrimaryDark</selectedcolor>
+            <font>ButtonIcon</font>
+            <label>&#xf17b;</label>
+            <visible>ListItem.IsSelected</visible>
+        </control>
+    </include>
+
+
+</includes>

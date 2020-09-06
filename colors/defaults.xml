@@ -1,0 +1,19 @@
+<colors>
+    <color name="Primary">ff00aeff</color>
+    <color name="PrimaryDark">ff007ab3</color>
+    <color name="PrimaryOpaque">a0002c40</color>
+    <color name="TextBright">fff4f4f4</color>
+    <color name="TextMid">b2b2b2b2</color>
+    <color name="TextDim">ff707070</color>
+    <color name="TextDark">ff303030</color>
+    <color name="ItemBackground">70303030</color>
+    <color name="PanelBackground">ff202020</color>
+    <color name="ListTextMain">ffe0e0e0</color>
+    <color name="ListTextSubDim">50d0d0d0</color>
+    <color name="MenuItemBackground">40727272</color>
+    <color name="MenuItemFocus">f000aeff</color>
+
+    <color name="Black">FF000000</color>
+    <color name="Invalid">FFFF6666</color>
+    <color name="background">FF212121</color>
+</colors>

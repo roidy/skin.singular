@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Poster wall large (6) -->
+    <include name="View_500_PosterWallLarge">
+        <control type="group">
+            <visible>Control.IsVisible(500)</visible>
+
+            <control type="panel" id="500">
+                <visible>!String.IsEmpty(Container.FolderName)  + !String.IsEqual(Container.FolderPath,videodb://movies/) + !String.IsEqual(Container.FolderPath,videodb://tvshows/)</visible>
+                <visible>!Container.Content(episodes)</visible>
+                <visible>!Container.Content(files)</visible>
+                <visible>!String.Contains(Container.FolderPath,sources)</visible>
+
+                <left>296</left>
+                <width>3472</width>
+                <top>0</top>
+                <bottom>0</bottom>
+                
+                <onleft>9005</onleft>
+                <onright>9050</onright>
+                <onup>500</onup>
+                <ondown>500</ondown>
+
+                <onback condition="$EXP[contentIsMovies] + String.IsEqual(Container.Content,Window(home).Property(moviecategory))">9005</onback>
+                <onback condition="$EXP[contentIsTVShows] + String.IsEqual(Container.Content,Window(home).Property(tvshowcategory))">9005</onback>
+                <onback condition="$EXP[contentIsMusic] + String.IsEqual(Container.Content,Window(home).Property(musiccategory))">9005</onback>
+                <onback condition="String.IsEqual(Container.FolderName,Files)">9005</onback>
+
+                <oninfo condition="Container.Content(actors)">RunScript(script.embuary.info,call=person,query=$INFO[ListItem.label])</oninfo>
+
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <viewtype label="Poster Wall Large">icon</viewtype>
+
+                <!-- Movies / TV Shows / Seasons / Sets / Actors-->
+                <itemlayout width="578" height="856" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="PosterLayout6">
+                            <param name="Focused" value="false" />
+                            <param name="ControlID" value="500" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="578" height="856" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="PosterLayout6">
+                            <param name="Focused" value="true" />
+                            <param name="ControlID" value="500" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <!-- Files -->
+                <itemlayout width="868" height="568" condition="Container.Content(files)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="LandscapeLayout4">
+                            <param name="Focused" value="false" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="868" height="568" condition="Container.Content(files)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="LandscapeLayout4">
+                            <param name="Focused" value="true" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <!-- Categorys -->
+                <itemlayout width="868" height="320" condition="$EXP[isSubCategory]">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="CategoryLayout4">
+                            <param name="ItemColor" value="MenuItemBackground" />
+                            <param name="TextColor" value="TextDim" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="868" height="320" condition="$EXP[isSubCategory]">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="CategoryLayout4">
+                            <param name="ItemColor" value="Primary" />
+                            <param name="TextColor" value="TextDark" />
+                        </include>
+                    </control>
+                </focusedlayout>
+            </control>
+
+            <!-- <include>JumpToLetterVertical</include> -->
+        </control>
+    </include>
+
+</includes>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="SystemInfo">
+
+        <control type="group">
+            <left>724</left>
+
+            <control type="grouplist">
+                <width>2890</width>
+                <height>2160</height>
+                <usecontrolcoords>true</usecontrolcoords>
+
+                <control type="label">
+                    <left>0</left>
+                    <right>0</right>
+                    <top>100</top>
+                    <width>100%</width>
+                    <height>360</height>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <font>Singular</font>
+                    <label>Singular</label>
+                </control>
+
+                <control type="label">
+                    <left>0</left>
+                    <right>0</right>
+                    <top>0</top>
+                    <width>100%</width>
+                    <height>140</height>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <align>center</align>
+                    <font>MenuHeader</font>
+                    <label>Version 0.1  •  Created by roidy</label>
+                </control>
+
+                <control type="label">
+                    <left>0</left>
+                    <right>0</right>
+                    <top>0</top>
+                    <width>100%</width>
+                    <height>100</height>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <align>center</align>
+                    <font>MenuHeader</font>
+                    <label>$INFO[Window(Home).Property(Movies.Count)] Movies  •  $INFO[Window(Home).Property(TVShows.Count)] TV Shows  •  $INFO[Window(Home).Property(Episodes.Count)] Episodes</label>
+                </control>
+
+                <control type="label">
+                    <left>0</left>
+                    <right>0</right>
+                    <top>0</top>
+                    <width>100%</width>
+                    <height>50</height>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <align>center</align>
+                    <font>MenuHeader</font>
+                    <label>$INFO[Window(Home).Property(Music.AlbumsCount)] Albums  •  $INFO[Window(Home).Property(Music.ArtistsCount)] Artists  •  $INFO[Window(Home).Property(Music.SongsCount)] Songs</label>
+                </control>
+
+                <control type="label">
+                    <left>0</left>
+                    <right>0</right>
+                    <top>1280</top>
+                    <width>100%</width>
+                    <height>60</height>
+                    <textcolor>TextBright</textcolor>
+                    <shadowcolor>ff000000</shadowcolor>
+                    <align>center</align>
+                    <font>ItemLabel</font>
+                    <label>Created using Icons by ICONS8 - https://icons8.com</label>
+                </control>
+            </control>
+        </control>
+
+
+
+    </include>
+
+</includes>

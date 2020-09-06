@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <include name="View_521_MusicCompact">
+        <control type="group">
+            <visible>Control.IsVisible(521)</visible>
+
+            <control type="panel" id="521">
+                <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(genres) | Container.Content(years)</visible>
+                <left>296</left>
+                <width>3472</width>
+                <top>0</top>
+                <bottom>0</bottom>
+                <onleft>9005</onleft>
+                <onright>9050</onright>
+                <onup>521</onup>
+                <ondown>521</ondown>
+                <onback condition="$EXP[contentIsMusic] + String.IsEqual(Container.Content,Window(home).Property(musiccategory))">9005</onback>
+                <onback condition="String.IsEqual(Container.FolderName,Files)">9005</onback>
+
+                <preloaditems>2</preloaditems>
+                <viewtype label="Music Compact">icon</viewtype>
+
+                <!-- Artists / Albums -->
+                <itemlayout width="678" height="208" condition="Container.Content(artists) | Container.Content(albums)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="MusicCompact5">
+                            <param name="ItemColor" value="MenuItemBackground" />
+                            <param name="TextColor" value="TextDim" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="678" height="208" condition="Container.Content(artists) | Container.Content(albums)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="MusicCompact5">
+                            <param name="ItemColor" value="Primary" />
+                            <param name="TextColor" value="TextDark" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+                <!-- Categorys -->
+                <itemlayout width="868" height="320" condition="Container.Content(genres) | Container.Content(years)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="CategoryLayout4">
+                            <param name="ItemColor" value="MenuItemBackground" />
+                            <param name="TextColor" value="TextDim" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="868" height="320" condition="Container.Content(genres) | Container.Content(years)">
+                    <control type="group">
+                        <top>72</top>
+                        <include content="CategoryLayout4">
+                            <param name="ItemColor" value="Primary" />
+                            <param name="TextColor" value="TextDark" />
+                        </include>
+                    </control>
+                </focusedlayout>
+            </control>
+
+            <!-- <include>JumpToLetterVertical</include> -->
+        </control>
+    </include>
+</includes>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">10</defaultcontrol>
+
+    <controls>
+        <control type="group">
+            <top>0</top>
+            <left>112</left>
+            <right>0</right>
+            <bottom>0</bottom>
+
+        </control>
+    </controls>
+</window>

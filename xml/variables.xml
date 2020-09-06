@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Navigation helper varibles -->
+    <variable name="MovieCategoryVar">
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),movies)">videodb://movies/titles/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),sets)">videodb://movies/sets/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),genres)">videodb://movies/genres/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),studios)">videodb://movies/studios/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),actors)">videodb://movies/actors/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),directors)">videodb://movies/directors/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),years)">videodb://movies/years/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),countries)">videodb://movies/countries/</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),4k)">special://skin/extras/playlists/4k_movies.xsp</value>
+        <value>videodb://movies/titles/</value>
+    </variable>
+
+    <variable name="TVShowCategoryVar">
+        <value condition="String.IsEqual(Window(home).Property(tvshowcategory),tvshows)">videodb://tvshows/titles/</value>
+        <value condition="String.IsEqual(Window(home).Property(tvshowcategory),genres)">videodb://tvshows/genres/</value>
+        <value condition="String.IsEqual(Window(home).Property(tvshowcategory),studios)">videodb://tvshows/studios/</value>
+        <value condition="String.IsEqual(Window(home).Property(tvshowcategory),actors)">videodb://tvshows/actors/</value>
+        <value condition="String.IsEqual(Window(home).Property(tvshowcategory),years)">videodb://tvshows/years/</value>
+        <value>videodb://tvshows/titles/</value>
+    </variable>
+
+    <variable name="MusicCategoryVar">
+        <value condition="String.IsEqual(Window(home).Property(musiccategory),artists)">musicdb://artists/</value>
+        <value condition="String.IsEqual(Window(home).Property(musiccategory),albums)">musicdb://albums/</value>
+        <value condition="String.IsEqual(Window(home).Property(musiccategory),justadded)">musicdb://recentlyaddedalbums/</value>
+        <value condition="String.IsEqual(Window(home).Property(musiccategory),compilations)">musicdb://compilations/</value>
+        <value condition="String.IsEqual(Window(home).Property(musiccategory),genres)">musicdb://genres/</value>
+        <value condition="String.IsEqual(Window(home).Property(musiccategory),years)">musicdb://years/</value>
+        <value>musicdb://artists/</value>
+    </variable>
+
+    <varible name="MovieSubMenuFocus">
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),movies)">22</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),sets)">23</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),genres)">24</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),studios)">25</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),actors)">26</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),directors)">27</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),years)">28</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),countries)">29</value>
+        <value condition="String.IsEqual(Window(home).Property(moviecategory),4k)">30</value>
+        <value>22</value>
+    </varible>
+
+    <!-- Return episode number with leading zero -->
+    <variable name="EpsNumber">
+        <value condition="String.Contains(ListItem.Episode,S)">$INFO[ListItem.Episode]</value>
+        <value condition="Integer.IsLess(ListItem.Episode,10)">$INFO[ListItem.Episode,0,]</value>
+        <value>$INFO[ListItem.Episode]</value>
+    </variable>
+
+    <!-- Return track number without leading zero -->
+    <variable name="TrackNumber">
+        <value condition="String.IsEqual(ListItem.TrackNumber,01)">1</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,02)">2</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,03)">3</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,04)">4</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,05)">5</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,06)">6</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,07)">7</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,08)">8</value>
+        <value condition="String.IsEqual(ListItem.TrackNumber,09)">9</value>
+        <value>$INFO[ListItem.TrackNumber]</value>
+    </variable>
+
+    <!-- Return track duration minutes without leading zero -->
+    <variable name="TrackDurationMinutes">
+        <value condition="String.IsEqual(ListItem.Duration(m),01)">1</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),02)">2</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),03)">3</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),04)">4</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),05)">5</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),06)">6</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),07)">7</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),08)">8</value>
+        <value condition="String.IsEqual(ListItem.Duration(m),09)">9</value>
+        <value>$INFO[ListItem.Duration(m)]</value>
+    </variable>
+
+    <!-- Context menu title -->
+    <variable name="ContextTitleVar">
+        <value condition="String.IsEqual(ListItem.dbtype,season)">$INFO[ListItem.TVShowTitle] - $INFO[ListItem.Title]</value>
+        <value condition="String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.season]x$VAR[EpsNumber] $INFO[ListItem.Title]</value>
+        <value>$INFO[ListItem.Title]</value>
+    </variable>
+
+    <!-- Video Library return background image to use -->
+    <variable name="BackgroundImage">
+        <value condition="Container.Content(actors)">$INFO[Window(home).Property(EmbuaryBackgroundVideos)]</value>
+        <value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value>$INFO[Window(home).Property(EmbuaryBackgroundVideos)]</value>
+    </variable>
+
+    <variable name="BackgroundImageWithoutFallback">
+        <value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value>$INFO[ListItem.Art(fanart)]</value>
+    </variable>
+
+    <!-- Music Library return background image to use -->
+    <variable name="BackgroundImageMusic">
+        <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value>$INFO[Window(home).Property(EmbuaryBackgroundVideos)]</value>
+    </variable>
+
+    <variable name="DialogSelectArtwork">
+        <value condition="!String.IsEmpty(Container(6).ListItem.Art(poster))">$INFO[Container(6).ListItem.Art(poster)]</value>
+        <value condition="!String.IsEmpty(Container(6).ListItem.Art(thumb))">$INFO[Container(6).ListItem.Art(thumb)]</value>
+        <value>$INFO[Container(6).ListItem.Icon]</value>
+    </variable>
+
+    <variable name="ListMainLabelVar">
+        <value condition="Container.Content(songs)">$INFO[ListItem.Title]</value>
+        <value>$INFO[ListItem.Label]</value>
+    </variable>
+
+    <variable name="WidgetLandscapeLabelVar">
+        <value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
+        <value condition="$EXP[isEpisode]">$INFO[ListItem.Season]x$VAR[EpsNumber] $INFO[ListItem.Title]</value>
+    </variable>
+
+    <variable name="DialogVideoInfoMainLabel">
+        <value condition="$EXP[isMovie]">$INFO[ListItem.Title] $INFO[ListItem.Year,(,)]</value>
+        <value condition="$EXP[isTVShow]">$INFO[ListItem.Title]</value>
+        <value condition="$EXP[isEpisode]">$INFO[ListItem.season,,x]$VAR[EpsNumber] $INFO[ListItem.Title]</value>
+    </variable>
+
+    <variable name="PosterVar">
+        <value condition="$EXP[isSeason] + String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+        <value condition="$EXP[isEpisode]">$INFO[ListItem.Art(season.poster)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="$EXP[isActor]">DefaultActorSolid.png</value>
+        <value condition="$EXP[isArtist]">DefaultActorSolid.png</value>
+        <value>$INFO[ListItem.Art(thumb)]</value>
+    </variable>
+
+    <variable name="MusicWallImageVar">
+        <value condition="!String.IsEmpty(ListItem.thumb)">$INFO[ListItem.thumb]</value>
+        <value condition="$EXP[isArtist]">DefaultActorSolid.png</value>
+    </variable>
+
+    <variable name="LandscapeImageVar">
+        <value condition="$EXP[isEpisode]">$INFO[ListItem.thumb]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="ListItem.IsFolder + String.IsEmpty(ListItem.thumb)">DefaultFolder16_9.png</value>
+        <value>$INFO[ListItem.Thumb]</value>
+    </variable>
+
+    <variable name="VolumeIconVar">
+        <value condition="Player.Muted">&#xF374;</value>
+        <value condition="Integer.IsGreater(Control.GetLabel(29999),50)">&#xF375;</value>
+        <!-- <value condition="Integer.IsGreater(Control.GetLabel(29999),33)">l</value> -->
+        <!-- <value condition="player.passthrough">w</value> -->
+        <value>&#xF373;</value>
+    </variable>
+
+
+
+    <variable name="HWDecoder">
+        <value condition="Player.Process(videohwdecoder)">HW</value>
+        <value>SW</value>
+    </variable>
+    <variable name="VideoBitrate">
+        <value condition="!String.IsEmpty(VideoPlayer.VideoBitrate)">$INFO[VideoPlayer.VideoBitrate] Kbps</value>
+        <value>Unknown</value>
+    </variable>
+    <variable name="AudioBitrate">
+        <value condition="!String.IsEmpty(VideoPlayer.AudioBitrate)">$INFO[VideoPlayer.AudioBitrate] kbps</value>
+        <value>Unknown</value>
+    </variable>
+
+    <variable name="VideoResolution">
+        <value condition="String.IsEqual(ListItem.VideoResolution,480)">  •  SD</value>
+        <value condition="String.IsEqual(ListItem.VideoResolution,540)">  •  SD</value>
+        <value condition="String.IsEqual(ListItem.VideoResolution,576)">  •  SD</value>
+        <value condition="String.IsEqual(ListItem.VideoResolution,720)">  •  720p</value>
+        <value condition="String.IsEqual(ListItem.VideoResolution,1080)">  •  1080p</value>
+        <value condition="String.IsEqual(ListItem.VideoResolution,4K)">  •  4K</value>
+
+        <value>  •  **missing please report-$INFO[ListItem.VideoResolution]**</value>
+    </variable>
+
+    <variable name="AudioCodec">
+        <value condition="String.IsEqual(ListItem.AudioCodec,aac)">  •  AAC</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,ac3)">  •  DD</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,eac3)">  •  DD</value>
+
+        <value>  •  **missing please report-$INFO[ListItem.AudioCodec]**</value>
+    </variable>
+
+    <variable name="AudioChannels">
+        <value condition="String.IsEqual(ListItem.AudioChannels,1)">-MONO</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,2)">-2.0</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,3)">-2.1</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,4)">-4.0</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,5)">-4.1</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,6)">-5.1</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,7)">-6.1</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,8)">-7.1</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,9)">-9.0</value>
+        <value condition="String.IsEqual(ListItem.AudioChannels,10)">-9.1</value>
+
+        <value>  •  **missing please report-$INFO[ListItem.AudioChannels]**</value>
+    </variable>
+</includes>

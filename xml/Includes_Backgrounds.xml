@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Main Blurred Background -->
+    <include name="BlurredBackground">
+        <definition>
+            <control type="group">
+                <left>0</left>
+                <top>0</top>
+                <width>3840</width>
+                <height>2160</height>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <texture background="true">general/Black.png</texture>
+                </control>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" colordiffuse="ff606060">$INFO[Window(home).Property(listitem_blurred)]</texture>
+                </control>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <texture background="true" colordiffuse="40606060">general/White.png</texture>
+                </control>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <texture background="true" colordiffuse="a0ffffff">overlays/Noise.png</texture>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <!-- Main menu background -->
+    <include name="MainMenuBackground">
+        <definition>
+            <control type="group">
+                <left>0</left>
+                <top>0</top>
+                <width>224</width>
+                <height>2160</height>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <texture background="true">general/Black.png</texture>
+                </control>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <aspectratio align="left" aligny="top">scale</aspectratio>
+                    <texture background="true" colordiffuse="ff606060">$INFO[Window(home).Property(listitem_blurred)]</texture>
+                </control>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <texture background="true" colordiffuse="40606060">general/White.png</texture>
+                </control>
+                <control type="image">
+                    <fadetime>400</fadetime>
+                    <aspectratio>scale</aspectratio>
+                    <texture background="true" colordiffuse="a0ffffff">overlays/Noise.png</texture>
+                </control>
+            </control>
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>224</width>
+                <height>2160</height>
+                <texture colordiffuse="a0202020">general/White.png</texture>
+            </control>
+            <control type="image">
+                <left>224</left>
+                <top>0</top>
+                <width>48</width>
+                <height>2160</height>
+                <texture colordiffuse="e0202020">masks/MenuPanelShadowRight.png</texture>
+            </control>
+        </definition>
+    </include>
+
+</includes>

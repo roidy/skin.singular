@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <controls>
+        <!-- <control type="progress" id="29999">
+            <include>HiddenObject</include>
+            <info>Player.Volume</info>
+        </control> -->
+        <control type="group">
+            <animation effect="slide" time="300" start="0,-320" end="0,0">WindowOpen</animation>
+            <animation effect="slide" time="150" start="0,0" end="0,-320">WindowClose</animation>
+
+            <left>3172</left>
+            <top>0</top>
+            <width>668</width>
+            <height>192</height>
+
+            <!-- Dialog background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>668</width>
+                <height>192</height>
+                <texture colordiffuse="fc202020" border="80">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>572</width>
+                <height>96</height>
+                <texture colordiffuse="fc202020" border="32">masks/128x128r16.png</texture>
+            </control>
+            
+            <control type="group">
+                <control type="progress" id="29999">
+                    <left>150</left>
+                    <top>72</top>
+                    <width>450</width>
+                    <height>48</height>
+                    <reveal>false</reveal>
+                    <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground450.png</texturebg>
+                    <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                    <midtexture colordiffuse="Primary">progress/ProgressBarMid16.png</midtexture>
+                    <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                    <info>Player.Volume</info>
+                </control>
+                <control type="label">
+                    <left>72</left>
+                    <top>46</top>
+                    <height>96</height>
+                    <width>96</width>
+                    <font>VolumeIcon</font>
+                    <textcolor>TextBright</textcolor>
+                    <label>$VAR[VolumeIconVar]</label>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

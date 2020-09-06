@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <!-- <defaultcontrol>3</defaultcontrol> -->
+    <onload>SetFocus(9005,8)</onload>
+    <onload>SetFocus(3)</onload>
+    <onload>SetProperty(SettingsCategoryReturn,true,home)</onload>
+
+    <controls>
+        <!-- Fake image for backgroung blur -->
+        <control type="image" id="100000">
+            <left>-3000</left>
+            <top>-3000</top>
+            <width>10</width>
+            <height>10</height>
+            <texture background="true">$VAR[BackgroundImage]</texture>
+        </control>
+
+        <!-- Include blurred background -->
+        <include>BlurredBackground</include>
+
+        <!-- Main view -->
+        <control type="group">
+            <left>-552</left>
+            <right>0</right>
+            <top>0</top>
+            <bottom>0</bottom>
+
+            <!-- Main Menu background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>728</width>
+                <height>2160</height>
+                <texture colordiffuse="a0202020">general/White.png</texture>
+            </control>
+            <control type="image">
+                <left>728</left>
+                <top>0</top>
+                <width>48</width>
+                <height>2160</height>
+                <texture colordiffuse="e0202020">masks/MenuPanelShadowRight.png</texture>
+            </control>
+
+            <animation type="WindowOpen" reversible="false">
+                <effect type="slide" start="0,0" end="776,0" time="200" />
+                <effect type="fade" start="0" end="100" time="100" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="slide" start="0,0" end="-776,0" time="200" />
+                <effect type="fade" start="100" end="0" time="100" />
+            </animation>
+
+            <control type="grouplist" id="3">
+                <left>64</left>
+                <top>0</top>
+                <width>600</width>
+                    <height min="60" max="2160">auto</height>
+                <usecontrolcoords>true</usecontrolcoords>
+                <itemgap>-4</itemgap>
+                <align>center</align>
+                <onleft>back</onleft>
+                <onright>5</onright>
+            </control>
+
+            <control type="button" id="10">
+                <include>CategoryMenuButtonTemplate</include>
+            </control>
+
+
+            <control type="grouplist" id="5">
+
+                <left>800</left>
+                <top>0</top>
+                <width>2000</width>
+                <height min="164" max="2160">auto</height>
+                <usecontrolcoords>false</usecontrolcoords>
+                <orientation>vertical</orientation>
+                <align>center</align>
+                <itemgap>-4</itemgap>
+                <onleft>3</onleft>
+                <onback>3</onback>
+            </control>
+
+        </control>
+
+
+
+
+        <control type="button" id="20">
+            <left>2000</left>
+            <top>0</top>
+            <width>400</width>
+            <height>96</height>
+            <font>MainMenuFont</font>
+            <textoffsetx>17</textoffsetx>
+            <texturefocus colordiffuse="Primary">selecteditem_bg_settings.png</texturefocus>
+            <textcolor>TextDim</textcolor>
+            <focusedcolor>TextBright</focusedcolor>
+            <aligny>center</aligny>
+            <pulseonselect>false</pulseonselect>
+            <!-- <onup>SetFocus(3)</onup>
+            <onup>Control.SetFocus(3,4)</onup>
+            <ondown>3</ondown> -->
+            <onclick>SettingsLevelChange</onclick>
+        </control>
+
+
+
+
+        <control type="button" id="7">
+            <description>Default Button</description>
+            <include>SettingCategoryButtonTemplate</include>
+        </control>
+        <control type="radiobutton" id="8">
+            <description>Default RadioButton</description>
+            <include>SettingCategoryButtonTemplate</include>
+            <!-- <font>Mono48</font> -->
+        </control>
+        <control type="spincontrolex" id="9">
+            <description>Default SpinControlex</description>
+            <include>SettingCategoryButtonTemplate</include>
+        </control>
+        <control type="edit" id="12">
+            <description>Default Edit control</description>
+            <include>SettingCategoryButtonTemplate</include>
+        </control>
+        <control type="sliderex" id="13">
+            <description>Default Slider</description>
+            <include>SettingCategoryButtonTemplate</include>
+        </control>
+        <control type="label" id="14">
+            <description>Default header Label</description>
+            <width>1520</width>
+            <height>164</height>
+            <textcolor>TextDim</textcolor>
+            <font>MenuText</font>
+            <textoffsetx>38</textoffsetx>
+            <textoffsety>82</textoffsety>
+            <align>left</align>
+            <aligny>top</aligny>
+        </control>
+        <!-- Include main menu -->
+        <include>MainMenu</include>
+
+
+    </controls>
+</window>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <!-- Hack to rerun startup.xml on skin change -->
+    <onunload condition="String.IsEmpty(Window(Home).Property(SingularLoaded))">ActivateWindow(Startup.xml)</onunload>
+    <defaultcontrol always="true">9000</defaultcontrol>
+
+    <controls>
+
+        <control type="image" id="100000">
+            <left>-3000</left>
+            <top>-3000</top>
+            <width>10</width>
+            <height>10</height>
+            <texture background="true">$VAR[BackgroundImage]</texture>
+        </control>
+
+        <include>BlurredBackground</include>
+
+        <control type="grouplist" id="9000">
+            <top>0</top>
+            <left>0</left>
+            <width>3840</width>
+            <height>2160</height>
+            <align>center</align>
+            <itemgap>28</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+
+            <!-- Header label -->
+            <control type="label" id="1">
+                <left>0</left>
+                <height>50</height>
+                <width>3840</width>
+                <font>MenuHeader</font>
+                <textcolor>TextBright</textcolor>
+                <align>center</align>
+                <aligny>top</aligny>
+                <scroll>true</scroll>
+            </control>
+            <!-- Spacer -->
+            <control type="group">
+                <height>28</height>
+            </control>
+            <!-- Body text -->
+            <control type="textbox" id="9">
+                <left>1000</left>
+                <width>1840</width>
+                <height min="100" max="560">auto</height>
+                <font>MenuItem</font>
+                <textcolor>TextBright</textcolor>
+                <align>center</align>
+                <aligny>top</aligny>
+                <label />
+                <autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
+            </control>
+            <!-- Spacer -->
+            <control type="group">
+                <height>28</height>
+            </control>
+            <!-- Progress bar layer -->
+            <control type="progress" id="20">
+                <left>1000</left>
+                <width>1840</width>
+                <height>48</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground1840.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>System.Progressbar</info>
+            </control>
+            <!-- Spacer -->
+            <control type="group">
+                <height>28</height>
+            </control>
+            <!-- OK button -->
+            <control type="button" id="11">
+                <description>OK button</description>
+                <label />
+                <left>1420</left>
+                <include>ContextButtonTemplate</include>
+            </control>
+            <!-- Cancel button -->
+            <control type="button" id="10">
+                <description>Cancel button</description>
+                <label />
+                <left>1420</left>
+                <include>ContextButtonTemplate</include>
+            </control>
+            <!-- Custom button -->
+            <control type="button" id="12">
+                <description>Custom button</description>
+                <left>1420</left>
+                <label />
+                <include>ContextButtonTemplate</include>
+            </control>
+
+        </control>
+
+    </controls>
+
+</window>

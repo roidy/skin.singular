@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+
+    <controls>
+        <control type="group">
+            <animation effect="slide" time="300" start="0,-320" end="0,0">WindowOpen</animation>
+            <animation effect="slide" time="150" start="0,0" end="0,-320">WindowClose</animation>
+
+            <left>2712</left>
+            <top>0</top>
+            <width>1128</width>
+            <height>256</height>
+            <!-- Dialog background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>1128</width>
+                <height>256</height>
+                <texture colordiffuse="fc202020" border="80">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>1032</width>
+                <height>160</height>
+                <texture colordiffuse="fc202020" border="32">masks/128x128r16.png</texture>
+            </control>
+
+            <control type="group">
+                <left>72</left>
+                <top>72</top>
+                <bottom>72</bottom>
+                <right>96</right>
+                <!-- Image -->
+                <control type="image" id="400">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>112</width>
+                    <height>112</height>
+                    <aspectratio>keep</aspectratio>
+                    <texture diffuse="masks/128x128r16.png" />
+                </control>
+                <!-- Header label -->
+                <control type="fadelabel" id="401">
+                    <left>136</left>
+                    <right>0</right>
+                    <top>0</top>
+                    <height>56</height>
+                    <font>NotificationText</font>
+                    <scrollout>false</scrollout>
+                    <pauseatend>2000</pauseatend>
+                    <aligny>center</aligny>
+                    <textcolor>TextBright</textcolor>
+                </control>
+                <!-- Body label -->
+                <control type="fadelabel" id="402">
+                    <left>136</left>
+                    <right>0</right>
+                    <top>56</top>
+                    <height>56</height>
+                    <font>NotificationText</font>
+                    <scrollout>false</scrollout>
+                    <pauseatend>2000</pauseatend>
+                    <aligny>center</aligny>
+                    <textcolor>TextDim</textcolor>
+                </control>
+            </control>
+        </control>
+    </controls>
+
+</window>

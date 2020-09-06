@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <controls>
+        <control type="group">
+            <visible>!Window.IsVisible(volumebar) + !Window.IsVisible(extendedprogressdialog)</visible>
+            <control type="image">
+                <texture colordiffuse="a0303030">general/White.png</texture>
+            </control>
+            <control type="image">
+                <top>45%</top>
+                <left>45%</left>
+                <bottom>45%</bottom>
+                <right>45%</right>
+                <texture colordiffuse="TextBright">special://skin/extras/spinners/Sun.png</texture>
+                <aspectratio>keep</aspectratio>
+                <animation effect="rotate" start="360" end="0" center="auto" time="3000" loop="true" condition="true">conditional</animation>
+            </control>
+            <control type="progress" id="10">
+            </control>
+        </control>
+    </controls>
+</window>

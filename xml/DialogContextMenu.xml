@@ -1,0 +1,52 @@
+<!-- DialogContextMenu.xml -->
+<!-- TODO:- Nothing -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol always="true">996</defaultcontrol>
+    <controls>
+        <control type="group">
+            <control type="image" id="100000">
+                <left>-3000</left>
+                <top>-3000</top>
+                <width>10</width>
+                <height>10</height>
+                <texture background="true">$VAR[BackgroundImage]</texture>
+            </control>
+            <include>BlurredBackground</include>
+
+            <control type="group">
+                <animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
+                <animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+                <include content="CenterContext">
+                    <param name="id" value="996" />
+                </include>
+                <!-- Context menu header -->
+                <control type="label">
+                    <top>0</top>
+                    <left>0</left>
+                    <width>3840</width>
+                    <height>100</height>
+                    <font>MenuHeader</font>
+                    <textcolor>TextBright</textcolor>
+                    <align>center</align>
+                    <label>$VAR[ContextTitleVar]</label>
+                </control>
+                <!--Context menu main control list -->
+                <control type="grouplist" id="996">
+                    <description>grouplist for context buttons</description>
+                    <left>1404</left>
+                    <top>128</top>
+                    <width>1032</width>
+                    <height min="60" max="2160">auto</height>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>-4</itemgap>
+                </control>
+                <!-- Context menu button template -->
+                <control type="button" id="1000">
+                    <include>ContextButtonTemplate</include>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

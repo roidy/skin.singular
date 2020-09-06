@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <onload>SetFocus(9005,8)</onload>
+    <onload condition="String.IsEqual(Window(home).Property(SettingsCategoryReturn),true)">SetFocus(9020)</onload>
+    <onunload>SetProperty(SettingsCategoryReturn,false,home)</onunload>
+
+    <controls>
+        <control type="group">
+            <top>0</top>
+            <left>0</left>
+
+            <!-- Fake image for backgroung blur -->
+            <control type="image" id="100000">
+                <left>-3000</left>
+                <top>-3000</top>
+                <width>10</width>
+                <height>10</height>
+                <texture background="true">$VAR[BackgroundImage]</texture>
+            </control>
+
+            <!-- Include blurred background -->
+            <include>BlurredBackground</include>
+
+            <!-- Main view -->
+            <control type="group">
+                <left>-552</left>
+                <right>0</right>
+                <top>0</top>
+                <bottom>0</bottom>
+
+                <!-- Main Menu background -->
+                <control type="image">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>728</width>
+                    <height>2160</height>
+                    <texture colordiffuse="a0202020">general/White.png</texture>
+                </control>
+                <control type="image">
+                    <left>728</left>
+                    <top>0</top>
+                    <width>48</width>
+                    <height>2160</height>
+                    <texture colordiffuse="e0202020">masks/MenuPanelShadowRight.png</texture>
+                </control>
+
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="slide" start="0,0" end="776,0" time="200" />
+                    <effect type="fade" start="0" end="100" time="100" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="slide" start="0,0" end="-776,0" time="200" />
+                    <effect type="fade" start="100" end="0" time="100" />
+                </animation>
+
+                <control type="grouplist" id="9020">
+                    <left>64</left>
+                    <top>0</top>
+                    <width>600</width>
+                    <height min="60" max="2160">auto</height>
+                    <usecontrolcoords>true</usecontrolcoords>
+                    <itemgap>-4</itemgap>
+                    <align>center</align>
+                    <onleft>9005</onleft>
+                    <onback>9005</onback>
+
+                    <control type="button" id="9021">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[14206]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(InterfaceSettings)</onclick>
+                        <onright>ReplaceWindow(InterfaceSettings)</onright>
+                    </control>
+                    <control type="button" id="9022">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[14200]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(PlayerSettings)</onclick>
+                        <onright>ReplaceWindow(PlayerSettings)</onright>
+                    </control>
+                    <control type="button" id="9023">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[14211]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(MediaSettings)</onclick>
+                        <onright>ReplaceWindow(MediaSettings)</onright>
+                    </control>
+                    <control type="button" id="9024">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[19020]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(pvrsettings)</onclick>
+                        <onright>ReplaceWindow(pvrsettings)</onright>
+                    </control>
+                    <control type="button" id="9025">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[15016]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(gamesettings)</onclick>
+                        <onright>ReplaceWindow(gamesettings)</onright>
+                    </control>
+                    <control type="button" id="9026">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[13000]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(SystemSettings)</onclick>
+                        <onright>ReplaceWindow(SystemSettings)</onright>
+                    </control>
+                    <control type="button" id="9027">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[705]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(ServiceSettings)</onclick>
+                        <onright>ReplaceWindow(ServiceSettings)</onright>
+                    </control>
+                    <control type="button" id="9028">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[13200]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(Profiles)</onclick>
+                        <onright>ReplaceWindow(Profiles)</onright>
+                    </control>
+                    <control type="button" id="9029">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>$LOCALIZE[24001]</label>
+                        <!-- <onclick>SetProperty(ShowCategory,false,home)</onclick> -->
+                        <onclick>ReplaceWindow(AddonBrowser)</onclick>
+                        <onright>ReplaceWindow(AddonBrowser)</onright>
+                    </control>
+                    <control type="button" id="9030">
+                        <include>CategoryMenuButtonTemplate</include>
+                        <label>CoreELEC</label>
+                        <onclick>RunAddon(service.coreelec.settings)</onclick>
+                        <onright>RunAddon(service.coreelec.settings)</onright>
+                        <visible>System.HasAddon(service.coreelec.settings)</visible>
+                    </control>
+
+                </control>
+
+                <!-- Include system information -->
+                <include>SystemInfo</include>
+
+            </control>
+
+            <!-- Include main menu -->
+            <include>MainMenu</include>
+
+        </control>
+    </controls>
+</window>

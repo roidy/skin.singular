@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TODO: Fix hardcoded color values -->
+
+<includes>
+
+    <!-- ======================= Main menu button layout ======================= -->
+    <include name="MainMenuButtonLayout">
+        <param name="IconColor" default="TextDim" />
+        <param name="FocusLayout" default="false" />
+        <definition>
+            <control type="group">
+                <animation type="Focus" reversible="false">
+                    <effect type="zoom" end="106" time="50" tween="sine" center="auto" />
+                    <effect type="zoom" end="94.34" time="150" tween="sine" delay="100" center="auto" />
+                </animation>
+                <control type="group">
+                    <visible>$PARAM[FocusLayout]</visible>
+                    <control type="image">
+                        <visible>Control.HasFocus(9005)</visible>
+                        <left>16</left>
+                        <top>16</top>
+                        <width>160</width>
+                        <height>160</height>
+                        <aspectratio scalediffuse="true">scale</aspectratio>
+                        <texture colordiffuse="Primary" border="16">masks/128x128r16.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>!Control.HasFocus(9005)</visible>
+                        <left>16</left>
+                        <top>16</top>
+                        <width>160</width>
+                        <height>160</height>
+                        <aspectratio scalediffuse="true">scale</aspectratio>
+                        <texture colordiffuse="f0404040" border="16">masks/128x128r16.png</texture>
+                    </control>
+                </control>
+                <control type="label">
+                    <left>16</left>
+                    <top>16</top>
+                    <width>160</width>
+                    <height>160</height>
+                    <align>center</align>
+                    <aligny>center</aligny>
+                    <font>MainMenuIcon</font>
+                    <textcolor>$PARAM[IconColor]</textcolor>
+                    <label>$INFO[ListItem.Property(icon)]</label>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <!-- ======================================================================= -->
+    <!--                            Main menu include                            -->
+    <!-- ======================================================================= -->
+    <include name="MainMenu">
+        <!-- Main Menu group container -->
+        <control type="group">
+            <left>0</left>
+            <top>0</top>
+            <width>224</width>
+            <height>2160</height>
+            <!-- Main Menu background -->
+            <include>MainMenuBackground</include>
+            <!-- Main Menu list -->
+            <control type="list" id="9005">
+                <left>16</left>
+                <top>0</top>
+                <width>224</width>
+                <height>2160</height>
+                <!-- Animation to vertically center menu -->
+                <include content="MainMenuTopAnimation">
+                    <param name="id" value="9005" />
+                </include>
+                <onback>SetFocus(9005,0)</onback>
+                <onback>SetProperty(menufocus,0,home)</onback>
+                <include>SubMenuOnLeft</include>
+                <onleft condition="window.IsActive(music)">SetFocus(9054)</onleft>
+                <onright condition="Window.IsActive(home)">SetFocus($INFO[Container(9005).ListItem.Property(menu_id)])</onright>
+                <onright condition="Window.IsActive(settings)">SetFocus(9020)</onright>
+                <onright condition="Window.IsActive(1100)">SetFocus(9000)</onright>
+                <onright condition="Window.IsActive(videos)">500</onright>
+                <onright condition="Window.IsActive(music)">50</onright>
+
+                <itemlayout height="192" width="192">
+                    <include>MainMenuButtonLayout</include>
+                </itemlayout>
+
+                <focusedlayout height="192" width="192">
+                    <!-- Fake button to store menu focus position and shift to correct section -->
+                    <control type="button">
+                        <left>-500</left>
+                        <onfocus>SetProperty(menufocus,$INFO[Container(9005).Position],home)</onfocus>
+                        <onfocus condition="Container(9005).Position(0)">ReplaceWindow(home)</onfocus>
+                        <onfocus condition="Container(9005).Position(1)">ReplaceWindow(Videos,$VAR[MovieCategoryVar])</onfocus>
+                        <onfocus condition="Container(9005).Position(2)">ReplaceWindow(Videos,$VAR[TVShowCategoryVar])</onfocus>
+                        <onfocus condition="Container(9005).Position(3)">ReplaceWindow(Music,$VAR[MusicCategoryVar])</onfocus>
+                        <onfocus condition="Container(9005).Position(4)">ReplaceWindow(Videos,sources://video/)</onfocus>
+                        <onfocus condition="Container(9005).Position(5)">ReplaceWindow(Pictures)</onfocus>
+                        <onfocus condition="Container(9005).Position(6)">ReplaceWindow(Programs)</onfocus>
+                        <onfocus condition="Container(9005).Position(7)">ReplaceWindow(1101)</onfocus>
+                        <onfocus condition="Container(9005).Position(8)">ReplaceWindow(settings)</onfocus>
+                        <onfocus condition="Container(9005).Position(9)">ReplaceWindow(1100)</onfocus>
+                    </control>
+
+                    <include content="MainMenuButtonLayout">
+                        <param name="FocusLayout" value="true" />
+                        <param name="IconColor" value="TextDark" />
+                    </include>
+                </focusedlayout>
+
+                <content>
+                    <!-- Home section -->
+                    <item>
+                        <property name="menu_id">$NUMBER[4000]</property>
+                        <property name="id">home</property>
+                        <property name="icon">&#xf237;</property>
+                    </item>
+                    <!-- Movies section -->
+                    <item>
+                        <include>MovieSubMenuOnClick</include>
+                        <property name="menu_id">$NUMBER[50]</property>
+                        <property name="id">movies</property>
+                        <property name="icon">&#xf1f2;</property>
+                        <property name="icon2">&#xf1d5;</property>
+                    </item>
+                    <!-- TV Shows section -->
+                    <item>
+                        <include>TVShowSubMenuOnClick</include>
+                        <property name="menu_id">$NUMBER[50]</property>
+                        <property name="id">tvshows</property>
+                        <property name="icon">&#xf334;</property>
+                    </item>
+                    <!-- Music section -->
+                    <item>
+                        <onclick>SetFocus(9054)</onclick>
+                        <property name="menu_id">$NUMBER[502]</property>
+                        <property name="id">music</property>
+                        <property name="icon">&#xf299;</property>
+                    </item>
+                    <!-- Videos section -->
+                    <item>
+                        <onclick>noop</onclick>
+                        <property name="menu_id">$NUMBER[50]</property>
+                        <property name="id">videos</property>
+                        <property name="icon">&#xf1e5;</property>
+                    </item>
+                    <!-- Pictures section -->
+                    <item>
+                        <onclick>noop</onclick>
+                        <property name="menu_id">$NUMBER[7000]</property>
+                        <property name="id">pictures</property>
+                        <property name="icon">&#xf162;</property>
+                    </item>
+                    <!-- Addons section -->
+                    <item>
+                        <onclick>noop</onclick>
+                        <property name="menu_id">$NUMBER[8000]</property>
+                        <property name="id">addons</property>
+                        <property name="icon">&#xf1e0;</property>
+                    </item>
+                    <!-- Global Search section -->
+                    <item>
+                        <onclick>RunScript(script.globalsearch)</onclick>
+                        <property name="menu_id">$NUMBER[14000]</property>
+                        <property name="id">search</property>
+                        <property name="icon">&#xf2eb;</property>
+                    </item>
+                    <!-- Settings section -->
+                    <item>
+                        <onclick>noop</onclick>
+                        <property name="menu_id">$NUMBER[11001]</property>
+                        <property name="id">settings</property>
+                        <property name="icon">&#xf20c;</property>
+                    </item>
+                    <!-- Power menu section -->
+                    <item>
+                        <onclick>noop</onclick>
+                        <property name="menu_id">$NUMBER[9000]</property>
+                        <property name="id">powermenu</property>
+                        <property name="icon">&#xf2c6;</property>
+                    </item>
+                </content>
+            </control>
+        </control>
+
+    </include>
+</includes>

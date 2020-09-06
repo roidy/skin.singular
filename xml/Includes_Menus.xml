@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Video Category Menu   -->
+    <include name="VideoCategoryMenu">
+        <control type="group" id="9052">
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(genres) | Container.Content(studios) | Container.Content(actors) | Container.Content(directors) | Container.Content(years) | Container.Content(countries)</visible>
+            <left>-552</left>
+            <width>776</width>
+            <top>0</top>
+            <bottom>0</bottom>
+
+            <!-- Main Menu background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>728</width>
+                <height>2160</height>
+                <texture colordiffuse="a0202020">general/White.png</texture>
+            </control>
+            <control type="image">
+                <left>728</left>
+                <top>0</top>
+                <width>48</width>
+                <height>2160</height>
+                <texture colordiffuse="e0202020">masks/MenuPanelShadowRight.png</texture>
+            </control>
+
+            <control type="grouplist" id="9053">
+                <left>64</left>
+                <top>0</top>
+                <width>600</width>
+                <height min="60" max="2160">auto</height>
+                <onleft>9005</onleft>
+                <onright>50</onright>
+                <onback>50</onback>
+                <align>center</align>
+                <itemgap>-4</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+                <defaultcontrol>26</defaultcontrol>
+
+                <!-- Titles button -->
+                <control type="button" id="22">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Titles</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,movies,home)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetProperty(tvshowcategory,tvshows,home)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetFocus(9005,1)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetFocus(9005,2)</onclick>
+                </control>
+                <!-- Sets button (movies only) -->
+                <control type="button" id="23">
+                    <visible>$EXP[contentIsMovies]</visible>
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Sets</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,sets,home)</onclick>
+                    <onclick>SetFocus(9005,1)</onclick>
+                </control>
+                <!-- Genres button -->
+                <control type="button" id="24">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Genres</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,genres,home)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetProperty(tvshowcategory,genres,home)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetFocus(9005,1)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetFocus(9005,2)</onclick>
+                </control>
+                <!-- Studios button -->
+                <control type="button" id="25">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Studios</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,studios,home)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetProperty(tvshowcategory,studios,home)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetFocus(9005,1)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetFocus(9005,2)</onclick>
+                </control>
+                <!-- Actors button -->
+                <control type="button" id="26">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Actors</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,actors,home)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetProperty(tvshowcategory,actors,home)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetFocus(9005,1)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetFocus(9005,2)</onclick>
+                </control>
+                <!-- Directors button (movies only) -->
+                <control type="button" id="27">
+                    <visible>$EXP[contentIsMovies]</visible>
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Directors</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,directors,home)</onclick>
+                    <onclick>SetFocus(9005,1)</onclick>
+                </control>
+                <!-- Years button -->
+                <control type="button" id="28">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Years</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,years,home)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetProperty(tvshowcategory,years,home)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetFocus(9005,1)</onclick>
+                    <onclick condition="$EXP[contentIsTVShows]">SetFocus(9005,2)</onclick>
+                </control>
+                <!-- Countries button (movies only)-->
+                <control type="button" id="29">
+                    <visible>$EXP[contentIsMovies]</visible>
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Countries</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,countries,home)</onclick>
+                    <onclick>SetFocus(9005,1)</onclick>
+                </control>
+                <!-- 4K playlist (movies only) -->
+                <control type="button" id="30">
+                    <visible>$EXP[contentIsMovies]</visible>
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>4K</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick condition="$EXP[contentIsMovies]">SetProperty(moviecategory,4k,home)</onclick>
+                    <onclick>SetFocus(9005,1)</onclick>
+                </control>
+
+            </control>
+        </control>
+    </include>
+
+    <!-- Music Category Menu -->
+    <include name="MusicCategoryMenu">
+        <control type="group" id="9054">
+            <left>-552</left>
+            <width>776</width>
+            <top>0</top>
+            <bottom>0</bottom>
+
+            <!-- Main Menu background -->
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>728</width>
+                <height>2160</height>
+                <texture colordiffuse="a0202020">general/White.png</texture>
+            </control>
+            <control type="image">
+                <left>728</left>
+                <top>0</top>
+                <width>48</width>
+                <height>2160</height>
+                <texture colordiffuse="e0202020">masks/MenuPanelShadowRight.png</texture>
+            </control>
+
+            <control type="grouplist" id="9055">
+                <left>64</left>
+                <top>0</top>
+                <width>600</width>
+                <height min="60" max="2160">auto</height>
+                <onleft>9005</onleft>
+                <onright>50</onright>
+                <onback>50</onback>
+                <align>center</align>
+                <itemgap>-4</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+
+                <!-- Artists button -->
+                <control type="button" id="22">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Artists</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,artists,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control>
+                <!-- Albums button -->
+                <control type="button" id="23">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Albums</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,albums,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control>
+                <!-- Songs button -->
+                <!-- <control type="button" id="24">
+                    <include>ButtonDefaults</include>
+                    <label>Songs</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,songs,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control> -->
+                <!-- recently added button -->
+                <control type="button" id="24">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Just Added</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,justadded,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control>
+                <!-- Compilations button -->
+                <control type="button" id="25">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Compilations</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,compilations,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control>
+                <!-- Genres button -->
+                <control type="button" id="26">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Genres</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,genres,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control>
+                <!-- Years button -->
+                <control type="button" id="27">
+                    <include>CategoryMenuButtonTemplate</include>
+                    <label>Years</label>
+                    <onclick>SetFocus(50)</onclick>
+                    <onclick>SetProperty(musiccategory,years,home)</onclick>
+                    <onclick>SetFocus(9005,3)</onclick>
+                </control>
+
+            </control>
+        </control>
+    </include>
+
+    <!-- Library menu -->
+    <include name="LibraryMenu">
+        <control type="group" id="9050">
+            <left>3880</left>
+            <width>976</width>
+            <top>0</top>
+            <bottom>0</bottom>
+
+            <!-- Main Menu background -->
+            <control type="image">
+                <left>48</left>
+                <top>0</top>
+                <width>928</width>
+                <height>2160</height>
+                <texture colordiffuse="a0202020">general/White.png</texture>
+            </control>
+            <control type="image">
+                <left>0</left>
+                <top>0</top>
+                <width>48</width>
+                <height>2160</height>
+                <texture colordiffuse="e0202020">masks/MenuPanelShadowLeft.png</texture>
+            </control>
+
+            <control type="grouplist" id="9051">
+                <left>112</left>
+                <top>0</top>
+                <width>800</width>
+                <height min="60" max="2160">auto</height>
+                <onleft>50</onleft>
+                <onright>noop</onright>
+                <onback>50</onback>
+                <align>center</align>
+                <itemgap>-4</itemgap>
+                <usecontrolcoords>true</usecontrolcoords>
+
+                <!-- View mode button -->
+                <control type="button" id="71">
+                    <visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>$INFO[Container.Viewmode]</label>
+                    <onclick>Container.NextViewMode</onclick>
+                </control>
+                <!-- Sort methood button -->
+                <control type="button" id="72">
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>$INFO[Container.SortMethod,Sort by ]</label>
+                    <onclick>Container.NextSortMethod</onclick>
+                </control>
+                <!-- Sort mode Asc/Dec button -->
+                <control type="button" id="4">
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>$INFO[Container.SortOrder,Sort ]</label>
+                </control>
+                <!-- Show All / Unwatched / Watched button Video Only -->
+                <control type="button" id="10">
+                    <visible>false</visible>
+                </control>
+                <control type="button" id="73">
+                    <visible>Window.IsVisible(MyVideoNav.xml)</visible>
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>$INFO[Control.GetLabel(10),Show ]</label>
+                    <onclick>SendClick(10)</onclick>
+                </control>
+                <!-- Filter button -->
+                <control type="edit" id="19">
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>Filter </label>
+                </control>
+                <!-- Filter button -->
+                <control type="button" id="74">
+                    <visible>Container.CanFilterAdvanced</visible>
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>Advance Filter $VAR[ContainerIsFiltered]</label>
+                    <onclick>Filter</onclick>
+                </control>
+                <!-- Update Library -->
+                <control type="button" id="20">
+                    <include>LibraryMenuButtonTemplate</include>
+                    <label>653</label>
+                    <onclick>SetFocus(50)</onclick>
+                </control>
+
+            </control>
+
+        </control>
+    </include>
+
+</includes>

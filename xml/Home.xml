@@ -1,0 +1,85 @@
+<!-- ======================================================================= -->
+<!--                                Home.xml                                 -->
+<!-- ======================================================================= -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <defaultcontrol>9005</defaultcontrol>
+    <!-- <onload>SetProperty(SettingsCategoryReturn,false,home)</onload> -->
+    <onload>SetFocus(9005,$INFO[Window(home).Property(menufocus)])</onload>
+    <onunload>SetProperty(menufocus,$INFO[Container(9005).Position,home)</onunload>
+
+    <controls>
+
+        <!-- Background image -->
+        <control type="image" id="100000">
+            <left>-3000</left>
+            <top>-3000</top>
+            <width>10</width>
+            <height>10</height>
+            <texture background="true">$VAR[BackgroundImage]</texture>
+        </control>
+        <include>BlurredBackground</include>
+
+
+        <!-- Widget grouplist -->
+        <control type="grouplist" id="4000">
+            <left>224</left>
+            <top>0</top>
+            <bottom>0</bottom>
+            <right>0</right>
+            <usecontrolcoords>true</usecontrolcoords>
+            <itemgap>0</itemgap>
+            <visible>String.IsEqual(Container(9005).ListItem.Property(id),home)</visible>
+            <!-- Top spacer -->
+            <control type="group">
+                <height>80</height>
+            </control>
+            <!-- Now playing widget -->
+            <include content="WidgetNowPlaying">
+                <param name="OnLeft" value="9005" />
+                <param name="OnDown" value="4002" />
+            </include>
+            <!-- Inprogress / Up Next widget -->
+            <include content="HomeWidgetLandscapeLarge">
+                <param name="WidgetLabel" value="Inprogress Movies" />
+                <param name="WidgetLabel2" value="Next Episodes" />
+                <param name="ListID" value="4002" />
+                <param name="Content" value="plugin://script.embuary.helper/?info=getinprogress&type=movie" />
+                <param name="Content2" value="plugin://script.embuary.helper/?info=getnextup" />
+                <param name="ContentType" value="videos" />
+                <param name="OnLeft" value="9005" />
+                <param name="OnBack" value="SetFocus(4002,0,absolute)" />
+                <param name="OnUp" value="4001" />
+                <param name="OnDown" value="4003" />
+            </include>
+            <!-- Recently added movies widget -->
+            <include content="HomeWidgetLandscapeSmall">
+                <param name="WidgetLabel" value="Recently Added Movies" />
+                <param name="ListID" value="4003" />
+                <param name="Content" value="special://skin/extras/playlists/recent_unwatched_movies.xsp" />
+                <param name="ContentType" value="videos" />
+                <param name="OnLeft" value="9005" />
+                <param name="OnBack" value="SetFocus(4003,0,absolute)" />
+                <param name="OnUp" value="4002" />
+                <param name="OnDown" value="4004" />
+                <param name="GroupHeight" value="740" />
+            </include>
+            <!-- Recently added tv shows widget -->
+            <include content="HomeWidgetLandscapeSmall">
+                <param name="WidgetLabel" value="Recently Added TV Shows" />
+                <param name="ListID" value="4004" />
+                <param name="Content" value="plugin://script.embuary.helper/?info=getnewshows&showall=true" />
+                <param name="ContentType" value="videos" />
+                <param name="OnLeft" value="9005" />
+                <param name="OnBack" value="SetFocus(4004,0,absolute)" />
+                <param name="OnUp" value="4003" />
+                <param name="GroupHeight" value="840" />
+            </include>
+        </control>
+
+        <!-- Include main menu -->
+        <include>MainMenu</include>
+
+    </controls>
+</window>

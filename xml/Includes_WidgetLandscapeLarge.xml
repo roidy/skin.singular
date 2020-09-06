@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TODO: Fix hardcoded color values -->
+
+<includes>
+
+    <!-- ======================= Landscape large layout ======================== -->
+    <include name="LandscapeLayoutLarge">
+        <control type="group">
+
+            <animation type="Focus" reversible="false">
+                <effect type="zoom" end="104" time="50" tween="sine" center="548,329" />
+                <effect type="zoom" end="96.25" time="150" tween="sine" delay="100" center="548,329" />
+            </animation>
+
+            <!-- Shadow layer -->
+            <control type="image">
+                <visible>!Control.HasFocus($PARAM[ListID]) | !$PARAM[Focused]</visible>
+                <left>0</left>
+                <top>0</top>
+                <width>1096</width>
+                <height>658</height>
+                <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+            </control>
+            <control type="image">
+                <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                <left>-8</left>
+                <top>-8</top>
+                <width>1114</width>
+                <height>674</height>
+                <texture background="true" border="100">masks/Shadow256x256r32.png</texture>
+            </control>
+            <!-- Selector layer -->
+            <control type="image">
+                <visible>Control.HasFocus($PARAM[ListID]) + $PARAM[Focused]</visible>
+                <left>40</left>
+                <top>40</top>
+                <width>1016</width>
+                <height>578</height>
+                <texture colordiffuse="Primary" border="40">masks/Selector8r24.png</texture>
+            </control>
+            <!-- Main landscape image -->
+            <control type="image">
+                <left>48</left>
+                <top>48</top>
+                <width>1000</width>
+                <height>562</height>
+                <texture background="true" diffuse="masks/WidgetHomeLandscapeMask1000x562r24.png">$VAR[LandscapeImageVar]</texture>
+            </control>
+            <!-- Clear logo layer -->
+            <control type="image">
+                <visible>$EXP[isMovie] + String.IsEmpty(ListItem.Art(landscape)) + !String.IsEmpty(ListItem.Art(clearlogo))</visible>
+                <left>348</left>
+                <top>400</top>
+                <width>400</width>
+                <height>155</height>
+                <texture background="true">$INFO[ListItem.Art(clearlogo)]</texture>
+            </control>
+            <!-- Label 1 layer -->
+            <control type="label">
+                <left>48</left>
+                <width>1000</width>
+                <top>628</top>
+                <height>60</height>
+                <align>center</align>
+                <font>WidgetLabel</font>
+                <textcolor>$PARAM[LabelColor]</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$VAR[WidgetLandscapeLabelVar]</label>
+            </control>
+            <!-- Label 2 layer -->
+            <control type="label">
+                <visible>$EXP[isEpisode]</visible>
+                <left>48</left>
+                <width>1000</width>
+                <top>696</top>
+                <height>60</height>
+                <align>center</align>
+                <font>WidgetLabel</font>
+                <textcolor>$PARAM[LabelColor]</textcolor>
+                <scrollsuffix>  •  </scrollsuffix>
+                <label>$INFO[ListItem.TVShowTitle]</label>
+            </control>
+            <!-- Progress bar layer -->
+            <control type="progress">
+                <left>64</left>
+                <top>546</top>
+                <width>968</width>
+                <height>48</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground968.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>ListItem.PercentPlayed</info>
+                <visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
+            </control>
+        </control>
+    </include>
+
+    <!-- ======================================================================= -->
+    <!--                    Home page large landscape widget                     -->
+    <!-- ======================================================================= -->
+    <include name="HomeWidgetLandscapeLarge">
+        <param name="WidgetLabel2" default="" />
+        <param name="Content2" default="" />
+        <definition>
+            <control type="group">
+                <visible>Integer.IsGreater(Container($PARAM[ListID]).NumItems,0) | Container($PARAM[ListID]).IsUpdating</visible>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>880</height>
+
+                <!-- Header group -->
+                <control type="group">
+                    <animation effect="Fade" start="100" end="50" time="100" condition="!Control.HasFocus($PARAM[ListID])">Conditional</animation>
+                    <animation effect="Fade" start="50" end="100" time="100" condition="Control.HasFocus($PARAM[ListID])">Conditional</animation>
+                    <!-- Movie header label -->
+                    <control type="label">
+                        <visible>String.IsEqual(Container(4002).ListItem(0).DBTYPE,movie)</visible>
+                        <left>120</left>
+                        <top>0</top>
+                        <width>600</width>
+                        <height>60</height>
+                        <aligny>top</aligny>
+                        <font>WidgetLabel</font>
+                        <textcolor>TextBright</textcolor>
+                        <label>$PARAM[WidgetLabel]</label>
+                    </control>
+                    <!-- Episode header label -->
+                    <control type="label">
+                        <visible>String.IsEqual(Container(4002).ListItem(0).DBTYPE,episode)</visible>
+                        <left>120</left>
+                        <top>0</top>
+                        <width>600</width>
+                        <height>60</height>
+                        <aligny>top</aligny>
+                        <font>WidgetLabel</font>
+                        <textcolor>TextBright</textcolor>
+                        <label>$PARAM[WidgetLabel2]</label>
+                    </control>
+                </control>
+                <!-- Main widget list -->
+                <control type="fixedlist" id="$PARAM[ListID]">
+                    <top>52</top>
+                    <left>0</left>
+                    <right>0</right>
+                    <height>800</height>
+                    <onup>$PARAM[OnUp]</onup>
+                    <ondown>$PARAM[OnDown]</ondown>
+                    <onback>$PARAM[OnBack]</onback>
+                    <onleft>$PARAM[OnLeft]</onleft>
+                    <onright>noop</onright>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+                    <orientation>horizontal</orientation>
+                    <focusposition>0</focusposition>
+                    <movement>2</movement>
+
+                    <itemlayout width="1096" height="800">
+                        <control type="group">
+                            <left>72</left>
+                            <include content="LandscapeLayoutLarge">
+                                <param name="LabelColor" value="TextDim" />
+                                <param name="Focused" value="false" />
+                                <param name="ListID" value="$PARAM[ListID]" />
+                            </include>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout width="1096" height="800">
+                        <control type="group">
+                            <visible>Control.HasFocus($PARAM[ListID])</visible>
+                            <left>72</left>
+                            <include content="LandscapeLayoutLarge">
+                                <param name="LabelColor" value="TextBright" />
+                                <param name="Focused" value="true" />
+                                <param name="ListID" value="$PARAM[ListID]" />
+                            </include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus($PARAM[ListID])</visible>
+                            <left>72</left>
+                            <include content="LandscapeLayoutLarge">
+                                <param name="LabelColor" value="TextDim" />
+                                <param name="Focused" value="true" />
+                                <param name="ListID" value="$PARAM[ListID]" />
+                            </include>
+                        </control>
+                    </focusedlayout>
+
+                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]">$PARAM[Content]</content>
+                    <content target="$PARAM[ContentType]" sortby="$PARAM[SortBy]" sortorder="$PARAM[SortOrder]">$PARAM[Content2]</content>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+</includes>

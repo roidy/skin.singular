@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <defaultcontrol>5</defaultcontrol>
+
+    <controls>
+        <include>DialogBackground</include>
+
+        <control type="group">
+            <top>0</top>
+            <left>112</left>
+            <right>0</right>
+            <bottom>0</bottom>
+
+            <control type="group">
+                <left>132</left>
+                <top>128</top>
+                <right>132</right>
+                <bottom>128</bottom>
+
+                <control type="image">
+                    <width>100%</width>
+                    <height>100%</height>
+                    <texture colordiffuse="PanelBackground">masks/SettingsPanel.png</texture>
+                </control>
+
+                <control type="Label" id="2">
+                    <left>32</left>
+                    <top>16</top>
+                    <width>100%</width>
+                    <height>32</height>
+                    <textcolor>TextBright</textcolor>
+                    <font>Montserrat34</font>
+                </control>
+
+                <control type="grouplist" id="5">
+                    <left>32</left>
+                    <top>80</top>
+                    <width>1370</width>
+                    <height>608</height>
+                    <onup>5</onup>
+                    <ondown>9001</ondown>
+                    <onleft>9001</onleft>
+                    <onright condition="Container(5).HasNext | Container(5).HasPrevious">60</onright>
+                    <onright condition="![Container(5).HasNext | Container(5).HasPrevious]">9001</onright>
+                    <pagecontrol>60</pagecontrol>
+                </control>
+                <!-- <include content="ItemBackground">
+                    <param name="Left" value="32" />
+                    <param name="Top" value="80" />
+                    <param name="Width" value="1370" />
+                    <param name="Height" value="604" />
+                    <param name="Color" value="98404040" />
+                </include> -->
+
+                <!-- Default settings button -->
+                <control type="button" id="7">
+                    <include>SettingsButtonZoom</include>
+                    <left>32</left>
+                    <right>32</right>
+                    <height>76</height>
+                    <font>Montserrat28</font>
+                    <textoffsetx>30</textoffsetx>
+                    <texturefocus colordiffuse="Primary">masks/SettingsButtonMask.png</texturefocus>
+                    <textcolor>TextDim</textcolor>
+                    <focusedcolor>TextBright</focusedcolor>
+                    <disabledcolor>TextDim</disabledcolor>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <pulseonselect>false</pulseonselect>
+                </control>
+                <!-- Default radio button -->
+                <control type="radiobutton" id="8">
+                    <include>SettingsButtonZoom</include>
+                    <left>32</left>
+                    <width>300</width>
+                    <height>76</height>
+                    <font>Montserrat28</font>
+                    <textoffsetx>30</textoffsetx>
+                    <texturefocus colordiffuse="Primary">masks/SettingsButtonMask.png</texturefocus>
+                    <textcolor>TextDim</textcolor>
+                    <disabledcolor>TextDim</disabledcolor>
+                    <focusedcolor>TextBright</focusedcolor>
+                    <aligny>center</aligny>
+                    <pulseonselect>false</pulseonselect>
+                </control>
+                <!-- Default spinner -->
+                <control type="spincontrolex" id="9">
+                    <include>SettingsButtonZoom</include>
+                    <left>32</left>
+                    <width>300</width>
+                    <height>76</height>
+                    <font>Montserrat28</font>
+                    <textoffsetx>30</textoffsetx>
+                    <texturefocus colordiffuse="Primary">masks/SettingsButtonMask.png</texturefocus>
+                    <textcolor>TextDim</textcolor>
+                    <disabledcolor>TextDim</disabledcolor>
+                    <focusedcolor>TextBright</focusedcolor>
+                    <aligny>center</aligny>
+                    <pulseonselect>false</pulseonselect>
+                </control>
+                <!-- TODO - Default edit -->
+                <control type="edit" id="12">
+                    <description>Default Edit Control</description>
+                    <height>100</height>
+                    <font>font15</font>
+                    <textoffsetx>30</textoffsetx>
+                </control>
+                <!-- TODO - Default Slider -->
+                <control type="sliderex" id="13">
+                    <description>Default Slider</description>
+                    <height>100</height>
+                    <font>font15</font>
+                    <textoffsetx>30</textoffsetx>
+                </control>
+                <!-- Default label -->
+                <control type="label" id="14">
+                    <description>Default header Label</description>
+                    <width>1246</width>
+                    <height>76</height>
+                    <font>Montserrat34</font>
+                    <textcolor>Primary</textcolor>
+                    <textoffsetx>30</textoffsetx>
+                </control>
+
+                <control type="group" id="9001">
+                    <left>0</left>
+                    <top>716</top>
+                    <height>1000</height>
+                    <width>1000</width>
+
+                    <control type="button" id="28">
+                        <texturenofocus colordiffuse="TextDim">masks/MainMenuItemMask.png</texturenofocus>
+                        <textcolor>TextBright</textcolor>
+                        <width>334</width>
+                        <onleft>29</onleft>
+                        <onright>29</onright>
+                        <onup>5</onup>
+                        <ondown>5</ondown>
+                        <label>Browse</label>
+                        <include>ButtonDefaults</include>
+                    </control>
+                    <control type="button" id="29">
+                        <texturenofocus colordiffuse="TextDim">masks/MainMenuItemMask.png</texturenofocus>
+                        <textcolor>TextBright</textcolor>
+                        <width>334</width>
+                        <left>401</left>
+                        <label>Add Source</label>
+                        <onleft>28</onleft>
+                        <onright>28</onright>
+                        <onup>5</onup>
+                        <ondown>5</ondown>
+                        <include>ButtonDefaults</include>
+                    </control>
+                </control>
+
+                <control type="scrollbar" id="60">
+                    <left>1500</left>
+                    <top>80</top>
+                    <bottom>136</bottom>
+                    <width>10</width>
+                    <onleft>5</onleft>
+                    <onright>9001</onright>
+                    <ondown>60</ondown>
+                    <onup>60</onup>
+                </control>
+            </control>
+        </control>
+    </controls>
+</window>

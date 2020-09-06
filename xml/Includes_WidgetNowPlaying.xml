@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- TODO: Fix hardcoded color values -->
+
+<includes>
+
+    <!-- Now playing home screen widget -->
+    <include name="WidgetNowPlaying">
+        <definition>
+            <control type="group">
+                <visible>Player.HasAudio</visible>
+                <left>0</left>
+                <right>0</right>
+                <top>0</top>
+                <height>800</height>
+
+                <!-- Header group -->
+                <control type="group">
+                    <!-- Widget header label -->
+                    <control type="label">
+                        <animation effect="Fade" start="100" end="50" time="100" condition="!ControlGroup(4001).HasFocus">Conditional</animation>
+                        <animation effect="Fade" start="50" end="100" time="100" condition="ControlGroup(4001).HasFocus">Conditional</animation>
+                        <left>120</left>
+                        <top>0</top>
+                        <width>1200</width>
+                        <height>60</height>
+                        <aligny>top</aligny>
+                        <font>WidgetLabel</font>
+                        <textcolor>TextBright</textcolor>
+                        <label>Now Playing</label>
+                    </control>
+
+                    <control type="group">
+
+                        <control type="image">
+                            <top>48</top>
+                            <left>72</left>
+                            <height>636</height>
+                            <width>636</width>
+                            <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+                            <texture background="true" border="100">masks/Shadow256x256r24.png</texture>
+                            <fadetime>300</fadetime>
+                        </control>
+                        <control type="image">
+                            <top>96</top>
+                            <left>120</left>
+                            <height>540</height>
+                            <width>540</width>
+                            <aspectratio align="center" aligny="center" scalediffuse="true">keep</aspectratio>
+                            <texture background="true" diffuse="masks/LargeAlbumMask.png">$INFO[Player.Art(thumb)]</texture>
+                            <fadetime>300</fadetime>
+                        </control>
+
+                        <control type="group">
+                            <left>758</left>
+                            <top>140</top>
+
+                            <control type="label">
+                                <left>0</left>
+                                <top>0</top>
+                                <width>100%</width>
+                                <height>32</height>
+                                <textcolor>TextBright</textcolor>
+                                <font>LargeTitle</font>
+                                <align>left</align>
+                                <label>$INFO[MusicPlayer.TrackNumber]. $INFO[MusicPlayer.Title]</label>
+                            </control>
+                            <control type="label">
+                                <left>0</left>
+                                <top>84</top>
+                                <width>100%</width>
+                                <height>32</height>
+                                <textcolor>TextMid</textcolor>
+                                <font>ItemLabel</font>
+                                <align>left</align>
+                                <label>$INFO[MusicPlayer.Album]</label>
+                            </control>
+                            <control type="label">
+                                <left>0</left>
+                                <top>156</top>
+                                <width>100%</width>
+                                <height>32</height>
+                                <textcolor>TextMid</textcolor>
+                                <font>ItemLabel</font>
+                                <align>left</align>
+                                <label>$INFO[MusicPlayer.Artist]</label>
+                            </control>
+                        </control>
+
+                        <control type="group">
+                            <left>600</left>
+                            <top>390</top>
+
+                            <control type="group">
+                                <include>SongListPlayHead</include>
+                                <control type="label">
+                                    <left>104</left>
+                                    <top>42</top>
+                                    <width>120</width>
+                                    <height>32</height>
+                                    <textcolor>TextBright</textcolor>
+                                    <font>ItemLabelSecondary</font>
+                                    <align>center</align>
+                                    <label>'</label>
+                                </control>
+                                <control type="label">
+                                    <left>104</left>
+                                    <top>70</top>
+                                    <width>120</width>
+                                    <height>32</height>
+                                    <textcolor>TextBright</textcolor>
+                                    <font>ItemLabelSecondary</font>
+                                    <align>center</align>
+                                    <label>$INFO[Player.Time(m)]:$INFO[Player.Time(ss)]</label>
+                                </control>
+                            </control>
+
+                            <control type="progress">
+                                <left>142</left>
+                                <top>0</top>
+                                <width>1348</width>
+                                <height>48</height>
+                                <reveal>false</reveal>
+                                <texturebg colordiffuse="40ffffff">progress/ProgressBarBackground1348SongPlayback.png</texturebg>
+                                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                                <midtexture colordiffuse="Primary" border="2,0,2,0">progress/ProgressBarMid.png</midtexture>
+                                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                                <info>Player.Progress</info>
+                            </control>
+
+
+                            <control type="grouplist" id="4001">
+                                <top>140</top>
+                                <left>160</left>
+                                <width>1348</width>
+                                <orientation>horizontal</orientation>
+                                <align>center</align>
+                                <itemgap>32</itemgap>
+                                <onleft>9005</onleft>
+                                <ondown>4002</ondown>
+                                <onback>SetFocus(9005)</onback>
+
+                                <!-- Track back -->
+                                <control type="button" id="340">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf1da;</label>
+                                    <onclick>PlayerControl(Previous)</onclick>
+                                </control>
+                                <!-- Rewind -->
+                                <control type="button" id="341">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf12a;</label>
+                                    <onclick>PlayerControl(Rewind)</onclick>
+                                </control>
+                                <!-- Stop -->
+                                <control type="button" id="342">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf323;</label>
+                                    <onclick>SetFocus(50)</onclick>
+                                    <onclick>PlayerControl(Stop)</onclick>
+                                </control>
+                                <!-- Play -->
+                                <control type="button" id="343">
+                                    <visible>Player.Paused | [Player.Rewinding | Player.Forwarding]</visible>
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf2be;</label>
+                                    <onclick>PlayerControl(Play)</onclick>
+                                </control>
+                                <!-- Pause -->
+                                <control type="button" id="344">
+                                    <visible>!Player.Paused + ![Player.Rewinding | Player.Forwarding]</visible>
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf2ad;</label>
+                                    <onclick>PlayerControl(Play)</onclick>
+                                </control>
+                                <!-- Fast forward -->
+                                <control type="button" id="345">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf205;</label>
+                                    <onclick>PlayerControl(Forward)</onclick>
+                                </control>
+                                <!-- Track forward -->
+                                <control type="button" id="346">
+                                    <left>0</left>
+                                    <top>0</top>
+                                    <width>96</width>
+                                    <height>96</height>
+                                    <textoffsetx>16</textoffsetx>
+                                    <texturefocus colordiffuse="Primary">masks/128x128r16.png</texturefocus>
+                                    <texturenofocus colordiffuse="b0707070">masks/128x128r16.png</texturenofocus>
+                                    <font>ButtonIconSmall</font>
+                                    <textcolor>TextBright</textcolor>
+                                    <include>ButtonDefaults</include>
+                                    <label>&#xf1db;</label>
+                                    <onclick>PlayerControl(Next)</onclick>
+                                </control>
+                            </control>
+                        </control>
+                    </control>
+                </control>
+
+            </control>
+        </definition>
+    </include>
+
+</includes>

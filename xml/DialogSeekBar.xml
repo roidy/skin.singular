@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <visible>Player.Seeking | Player.DisplayAfterSeek | [Player.Paused + !Player.Caching] | Player.Forwarding | Player.Rewinding | Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | !String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
+    <visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
+    <controls>
+        <control type="group">
+
+            <control type="slider" id="401">
+                <left>0</left>
+                <top>65</top>
+                <width>100%</width>
+                <height>26</height>
+                <texturesliderbar colordiffuse="00FFFFFF">progress/ProgressBackground450.png</texturesliderbar>
+                <textureslidernib colordiffuse="Primary">progress/ProgressBarMid16.png</textureslidernib>
+                <textureslidernibfocus colordiffuse="Primary">general/White.png</textureslidernibfocus>
+                <!-- <visible>Player.SeekEnabled + !Player.ChannelPreviewActive</visible> -->
+            </control>
+            <control type="progress">
+                <left>150</left>
+                <bottom>200</bottom>
+                <width>1348</width>
+                <height>72</height>
+                <reveal>false</reveal>
+                <texturebg colordiffuse="80ffffff">progress/ProgressBarBackground1348SongPlayback.png</texturebg>
+                <lefttexture colordiffuse="Primary">progress/ProgressBarLeft.png</lefttexture>
+                <midtexture colordiffuse="Primary">progress/ProgressBarMid16.png</midtexture>
+                <righttexture colordiffuse="Primary">progress/ProgressBarRight.png</righttexture>
+                <info>Player.Progress</info>
+            </control>
+            <control type="label" id="402">
+                <left>0</left>
+                <top>0</top>
+            </control>
+        </control>
+
+    </controls>
+</window>
