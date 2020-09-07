@@ -83,7 +83,8 @@
             <name>ButtonIcon</name>
             <filename>line-awesome.ttf</filename>
             <size>72</size>
-        </font>        <font>
+        </font>
+        <font>
             <name>ButtonIconSmall</name>
             <filename>line-awesome.ttf</filename>
             <size>58</size>
@@ -98,88 +99,6 @@
             <name>Mono48</name>
             <filename>RobotoMono-Bold.ttf</filename>
             <size>48</size>
-        </font>
-
-
-
-
-
-        <!-- Skin Fonts -->
-        <font>
-            <name>Montserrat150</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>150</size>
-        </font>
-        <font>
-            <name>Montserrat72</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>72</size>
-        </font>
-        <font>
-            <name>Montserrat54</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>54</size>
-        </font>
-        <font>
-            <name>Montserrat42</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>42</size>
-        </font>
-        <font>
-            <name>Montserrat34</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>34</size>
-        </font>
-        <font>
-            <name>Montserrat30</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>30</size>
-        </font>
-        <font>
-            <name>MontSerrat28</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>28</size>
-        </font>
-
-        <font>
-            <name>Montserrat22</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>22</size>
-        </font>
-        <font>
-            <name>Montserrat20</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>20</size>
-        </font>
-        <font>
-            <name>Montserrat18</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>18</size>
-        </font>
-        <font>
-            <name>Montserrat14</name>
-            <filename>Montserrat-SemiBold.ttf</filename>
-            <size>14</size>
-        </font>
-        <font>
-            <name>ButtonIcon</name>
-            <filename>line-awesome.ttf</filename>
-            <size>44</size>
-        </font>
-        <font>
-            <name>MainMenuIconSmall</name>
-            <filename>line-awesome.ttf</filename>
-            <size>42</size>
-        </font>
-        <font>
-            <name>SmallIcon</name>
-            <filename>line-awesome.ttf</filename>
-            <size>30</size>
-        </font>
-        <font>
-            <name>PlayerProgress</name>
-            <filename>RobotoMono-Bold.ttf</filename>
-            <size>26</size>
         </font>
 
         <!-- Standard Kodi Fonts -->
@@ -304,6 +223,234 @@
         <font>
             <name>Mono26</name>
             <filename>NotoMono-Regular.ttf</filename>
+            <size>52</size>
+        </font>
+
+    </fontset>
+
+    <fontset id="Arial">
+
+        <!-- Singular Fonts -->
+        <font>
+            <name>Singular</name>
+            <filename>arial.ttf</filename>
+            <size>300</size>
+        </font>
+        <font>
+            <name>SettingsHeader</name>
+            <filename>arial.ttf</filename>
+            <size>100</size>
+        </font>
+        <font>
+            <name>LargeTitle</name>
+            <filename>arial.ttf</filename>
+            <size>82</size>
+        </font>
+        <font>
+            <name>MenuHeader</name>
+            <filename>arial.ttf</filename>
+            <size>68</size>
+        </font>
+        <font>
+            <name>MenuItem</name>
+            <filename>arial.ttf</filename>
+            <size>64</size>
+        </font>
+        <font>
+            <name>WidgetLabel</name>
+            <filename>arial.ttf</filename>
+            <size>60</size>
+        </font>
+        <font>
+            <name>ItemLabel</name>
+            <filename>arial.ttf</filename>
+            <size>52</size>
+        </font>
+        <font>
+            <name>ItemLabelSecondary</name>
+            <filename>arial.ttf</filename>
+            <size>48</size>
+        </font>
+        <font>
+            <name>NotificationText</name>
+            <filename>arial.ttf</filename>
+            <size>48</size>
+        </font>
+        <font>
+            <name>MenuItemSmall</name>
+            <filename>arial.ttf</filename>
+            <size>36</size>
+        </font>
+        <font>
+            <name>PlotText</name>
+            <filename>arial.ttf</filename>
+            <size>34</size>
+        </font>
+        <font>
+            <name>InfoLine</name>
+            <filename>arial.ttf</filename>
+            <size>30</size>
+        </font>
+
+        <font>
+            <name>PlayingIconOuter</name>
+            <filename>line-awesome.ttf</filename>
+            <size>400</size>
+        </font>
+        <font>
+            <name>PlayingIconInner</name>
+            <filename>line-awesome.ttf</filename>
+            <size>220</size>
+        </font>
+        <font>
+            <name>MainMenuIcon</name>
+            <filename>line-awesome.ttf</filename>
+            <size>120</size>
+        </font>
+        <font>
+            <name>ButtonIcon</name>
+            <filename>line-awesome.ttf</filename>
+            <size>72</size>
+        </font>
+        <font>
+            <name>ButtonIconSmall</name>
+            <filename>line-awesome.ttf</filename>
+            <size>58</size>
+        </font>
+        <font>
+            <name>VolumeIcon</name>
+            <filename>line-awesome.ttf</filename>
+            <size>82</size>
+        </font>
+
+        <font>
+            <name>Mono48</name>
+            <filename>RobotoMono-Bold.ttf</filename>
+            <size>48</size>
+        </font>
+
+        <!-- Standard Kodi Fonts -->
+        <font>
+            <name>font10</name>
+            <filename>arial.ttf</filename>
+            <size>46</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font12</name>
+            <filename>arial.ttf</filename>
+            <size>50</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font13</name>
+            <filename>arial.ttf</filename>
+            <size>60</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font14</name>
+            <filename>arial.ttf</filename>
+            <size>66</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font25_narrow</name>
+            <filename>arial.ttf</filename>
+            <size>50</size>
+            <style>lighten</style>
+            <linespacing>0.8</linespacing>
+        </font>
+        <font>
+            <name>font27</name>
+            <filename>arial.ttf</filename>
+            <size>54</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font27_narrow</name>
+            <filename>arial.ttf</filename>
+            <size>50</size>
+            <style>lighten</style>
+            <linespacing>0.8</linespacing>
+        </font>
+        <font>
+            <name>font37</name>
+            <filename>arial.ttf</filename>
+            <size>74</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font45</name>
+            <filename>arial.ttf</filename>
+            <size>90</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font60</name>
+            <filename>arial.ttf</filename>
+            <size>120</size>
+            <style>lighten</style>
+        </font>
+        <font>
+            <name>font_clock</name>
+            <filename>Roboto-Thin.ttf</filename>
+            <size>140</size>
+        </font>
+        <font>
+            <name>font_flag</name>
+            <filename>arial.ttf</filename>
+            <size>36</size>
+        </font>
+        <font>
+            <name>font20_title</name>
+            <filename>arial.ttf</filename>
+            <size>40</size>
+        </font>
+        <font>
+            <name>font25_title</name>
+            <filename>arial.ttf</filename>
+            <size>50</size>
+        </font>
+        <font>
+            <name>font30_title</name>
+            <filename>arial.ttf</filename>
+            <size>60</size>
+        </font>
+        <font>
+            <name>font32_title</name>
+            <filename>arial.ttf</filename>
+            <size>64</size>
+        </font>
+        <font>
+            <name>font36_title</name>
+            <filename>arial.ttf</filename>
+            <size>72</size>
+        </font>
+        <font>
+            <name>font45_title</name>
+            <filename>arial.ttf</filename>
+            <size>90</size>
+        </font>
+        <font>
+            <name>font52_title</name>
+            <filename>arial.ttf</filename>
+            <size>104</size>
+        </font>
+        <font>
+            <name>font_MainMenu</name>
+            <filename>arial.ttf</filename>
+            <size>120</size>
+        </font>
+        <font>
+            <name>WeatherTemp</name>
+            <aspect>0.85</aspect>
+            <filename>arial.ttf</filename>
+            <size>240</size>
+        </font>
+        <font>
+            <name>Mono26</name>
+            <filename>arial.ttf</filename>
             <size>52</size>
         </font>
 
