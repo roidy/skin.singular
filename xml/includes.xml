@@ -44,7 +44,10 @@
     <expression name="contentIsTVShows">[Container.Content(tvshows) | String.Contains(Container.FolderPath,tvshows)]</expression>
     <expression name="contentIsMusic">String.Contains(Container.FolderPath,musicdb:)</expression>
     <expression name="isSubCategory">Container.Content(genres) | Container.Content(studios) | Container.Content(directors) | Container.Content(years) | Container.Content(countries)</expression>
-
+    <expression name="isContentEqualToMusicCategory">String.IsEqual(Container.Content,Window(home).Property(musiccategory))</expression>
+    <expression name="isJustAddedAtTopLevel">[Container.Content(albums) + String.isEqual(Window(home).Property(musiccategory),justadded)]</expression>
+    <expression name="isCompilationsAtTopLevel">[Container.Content(albums) + String.isEqual(Window(home).Property(musiccategory),compilations)]</expression>
+    
     <!-- PlayerProcessInfo Label Helper -->
     <include name="PlayerProcessInfo">
         <control type="group">
@@ -56,7 +59,7 @@
                 <height>28</height>
                 <align>right</align>
                 <aligny>center</aligny>
-                <font>Montserrat20</font>
+                <font>MontserrNotificationTextat20</font>
                 <textcolor>TextDim</textcolor>
                 <label>$PARAM[label]  </label>
             </control>
@@ -66,7 +69,7 @@
                 <height>28</height>
                 <align>left</align>
                 <aligny>center</aligny>
-                <font>Montserrat20</font>
+                <font>NotificationText</font>
                 <textcolor>TextBright</textcolor>
                 <label>$PARAM[value]</label>
             </control>
@@ -273,7 +276,7 @@
         <left>32</left>
         <width>360</width>
         <height>76</height>
-        <font>Montserrat34</font>
+        <font>NotificationText</font>
         <textoffsetx>30</textoffsetx>
         <aspectratio scalediffuse="true">keep</aspectratio>
         <texturefocus colordiffuse="Primary">masks/MainMenuItemMask.png</texturefocus>

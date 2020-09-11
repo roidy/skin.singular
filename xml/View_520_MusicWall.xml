@@ -15,7 +15,7 @@
                 <onright>9050</onright>
                 <onup>520</onup>
                 <ondown>520</ondown>
-                <onback condition="$EXP[contentIsMusic] + String.IsEqual(Container.Content,Window(home).Property(musiccategory))">9005</onback>
+                <onback condition="$EXP[contentIsMusic] + [$EXP[isContentEqualToMusicCategory] | $EXP[isJustAddedAtTopLevel] | $EXP[isCompilationsAtTopLevel]]">9005</onback>
                 <onback condition="String.IsEqual(Container.FolderName,Files)">9005</onback>
 
                 <preloaditems>2</preloaditems>
