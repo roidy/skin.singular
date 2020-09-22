@@ -35,7 +35,7 @@
                     <shadowcolor>ff000000</shadowcolor>
                     <align>center</align>
                     <font>MenuHeader</font>
-                    <label>Version 0.1  •  Created by roidy</label>
+                    <label>Version 0.0.2~alpha  •  Created by roidy</label>
                 </control>
 
                 <control type="label">

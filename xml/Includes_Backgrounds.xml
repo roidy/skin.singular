@@ -39,7 +39,7 @@
                 <width>224</width>
                 <height>2160</height>
                 <control type="image">
-                    <fadetime>400</fadetime>
+                    <fadetime>10</fadetime>
                     <texture background="true">general/Black.png</texture>
                 </control>
                 <control type="image">
