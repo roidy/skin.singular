@@ -13,8 +13,8 @@
                 <bottom>0</bottom>
                 <onleft>9005</onleft>
                 <onright>9050</onright>
-                <onup>501</onup>
-                <ondown>501</ondown>
+                <onup>510</onup>
+                <ondown>510</ondown>
                 <onback condition="$EXP[contentIsTVShows] + String.IsEqual(Container.Content,Window(home).Property(tvshowcategory))">9005</onback>
 
                 <pagecontrol>60</pagecontrol>

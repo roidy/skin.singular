@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+    <!-- Landscape view-->
+    <include name="View_503_LandscapeFlow">
+        <control type="group">
+            <visible>Control.IsVisible(503)</visible>
+
+            <!-- Fake image for background blur -->
+            <control type="image" id="100000">
+                <left>-3000</left>
+                <top>-3000</top>
+                <width>10</width>
+                <height>10</height>
+                <texture background="true">$VAR[BackgroundImageWithoutFallback]</texture>
+            </control>
+
+            <!-- Hidden button to show full image -->
+            <control type="button" id="99">
+                <left>-1000</left>
+                <top>-1000</top>
+                <ondown>503</ondown>
+                <onup>503</onup>
+            </control>
+
+            <!-- InfoDialog background -->
+            <include>BlurredBackground</include>
+
+            <animation effect="slide" start="0,0" end="0,-740" time="150" condition="Control.HasFocus(51)">Conditional</animation>
+            <control type="image">
+                <!-- <animation effect="fade" start="100" end="0" time="200" condition="Control.HasFocus(51)">Conditional</animation> -->
+                <!-- <animation effect="fade" end="100" start="0" time="200" delay="200" condition="!Control.HasFocus(51)">Conditional</animation> -->
+                <left>224</left>
+                <top>0</top>
+                <width>3616</width>
+                <height>2032</height>
+                <fadetime>400</fadetime>
+                <aspectratio scalediffuse="true">scale</aspectratio>
+                <texture background="true" diffuse="masks/DialogVideoInfoBackgroundMask.png">$VAR[BackgroundImageWithoutFallback]</texture>
+            </control>
+
+            <control type="list" id="503">
+                <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(episodes) | String.Contains(Container.FolderPath,sources)</visible>
+                <left>224</left>
+                <right>0</right>
+                <top>1500</top>
+                <bottom>0</bottom>
+
+                <onleft>503</onleft>
+                <onright>503</onright>
+                <onup>99</onup>
+                <ondown>9050</ondown>
+
+                <onback condition="$EXP[contentIsMovies] + String.IsEqual(Container.Content,Window(home).Property(moviecategory))">9005</onback>
+                <onback condition="$EXP[contentIsTVShows] + String.IsEqual(Container.Content,Window(home).Property(tvshowcategory))">9005</onback>
+                <onback condition="$EXP[contentIsMusic] + String.IsEqual(Container.Content,Window(home).Property(musiccategory))">9005</onback>
+                <onback condition="String.IsEqual(Container.FolderName,Files)">9005</onback>
+
+                <orientation>horizontal</orientation>
+                <pagecontrol>60</pagecontrol>
+                <preloaditems>2</preloaditems>
+                <viewtype label="Landscape Flow">icon</viewtype>
+
+                <!-- Movies / TV Shows / Seasons / Sets / Files -->
+                <itemlayout width="868" height="568" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(episodes)">
+                    <control type="group">
+                        <left>72</left>
+                        <include content="LandscapeLayout4">
+                            <param name="Focused" value="false" />
+                            <param name="ControlID" value="503" />
+                        </include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="868" height="568" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(episodes)">
+                    <control type="group">
+                        <left>72</left>
+                        <include content="LandscapeLayout4">
+                            <param name="Focused" value="true" />
+                            <param name="ControlID" value="503" />
+                        </include>
+                    </control>
+                </focusedlayout>
+
+            </control>
+
+            <!-- Fullscreen image -->
+            <control type="image">
+                <animation type="Conditional" condition="Control.HasFocus(99)">
+                    <effect type="fade" start="0" end="100" time="300" />
+                    <!-- <effect type="zoom" start="94" end="100" center="1920,0" time="200" /> -->
+                </animation>
+                <animation type="Conditional" condition="!Control.HasFocus(99)">
+                    <effect type="fade" start="100" end="0" time="300" />
+                    <!-- <effect type="zoom" start="100" end="94" center="1920,0" time="200" /> -->
+                </animation>
+
+                <left>0</left>
+                <top>0</top>
+                <width>3840</width>
+                <height>2160</height>
+                <fadetime>400</fadetime>
+                <aspectratio scalediffuse="true">scale</aspectratio>
+                <texture background="true">$VAR[BackgroundImage]</texture>
+            </control>
+
+            <!-- <include>JumpToLetterVertical</include> -->
+        </control>
+    </include>
+
+</includes>

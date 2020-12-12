@@ -19,6 +19,7 @@
     <include file="View_500_PosterWallLarge.xml" />
     <include file="View_501_PosterWallSmall.xml" />
     <include file="View_502_LandscapeWall.xml" />
+    <include file="View_503_LandscapeFlow.xml" />
     <include file="View_510_EpisodeWallBasic.xml" />
     <include file="View_511_EpisodeWallExtended.xml" />
     <include file="View_520_MusicWall.xml" />
@@ -294,7 +295,7 @@
         <height>164</height>
         <textcolor>TextBright</textcolor>
         <focusedcolor>TextDark</focusedcolor>
-        <font>MenuItem</font>
+        <font>LibraryMenuItem</font>
         <align>left</align>
         <aligny>center</aligny>
         <textoffsetx>64</textoffsetx>

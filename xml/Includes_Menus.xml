@@ -4,8 +4,14 @@
     <!-- Video Category Menu   -->
     <include name="VideoCategoryMenu">
         <control type="group" id="9052">
+            <animation type="Conditional" condition="!Control.HasFocus(99)">
+                <effect type="fade" start="0" end="100" time="300" />
+            </animation>
+            <animation type="Conditional" condition="Control.HasFocus(99)">
+                <effect type="fade" start="100" end="0" time="300" />
+            </animation>
             <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(genres) | Container.Content(studios) | Container.Content(actors) | Container.Content(directors) | Container.Content(years) | Container.Content(countries)</visible>
-            <left>-552</left>
+            <left>-504</left>
             <width>776</width>
             <top>0</top>
             <bottom>0</bottom>
@@ -19,6 +25,7 @@
                 <texture colordiffuse="a0202020">general/White.png</texture>
             </control>
             <control type="image">
+                <visible>ControlGroup(9052).HasFocus(0)</visible>
                 <left>728</left>
                 <top>0</top>
                 <width>48</width>
@@ -230,21 +237,23 @@
     <!-- Library menu -->
     <include name="LibraryMenu">
         <control type="group" id="9050">
-            <left>3880</left>
-            <width>976</width>
+            <visible>!Window.IsVisible(DialogContextMenu.xml)</visible>
+            <left>3840</left>
+            <width>928</width>
             <top>0</top>
             <bottom>0</bottom>
 
             <!-- Main Menu background -->
             <control type="image">
-                <left>48</left>
+                <left>0</left>
                 <top>0</top>
                 <width>928</width>
                 <height>2160</height>
                 <texture colordiffuse="a0202020">general/White.png</texture>
             </control>
             <control type="image">
-                <left>0</left>
+                <visible>ControlGroup(9050).HasFocus(0)</visible>
+                <left>-48</left>
                 <top>0</top>
                 <width>48</width>
                 <height>2160</height>
@@ -252,7 +261,7 @@
             </control>
 
             <control type="grouplist" id="9051">
-                <left>112</left>
+                <left>64</left>
                 <top>0</top>
                 <width>800</width>
                 <height min="60" max="2160">auto</height>

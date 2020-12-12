@@ -5,9 +5,9 @@
     <include name="BlurredBackground">
         <definition>
             <control type="group">
-                <left>0</left>
+                <left>224</left>
                 <top>0</top>
-                <width>3840</width>
+                <width>3616</width>
                 <height>2160</height>
                 <control type="image">
                     <fadetime>400</fadetime>
