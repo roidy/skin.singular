@@ -65,7 +65,6 @@
                 <align>center</align>
                 <font>WidgetLabel</font>
                 <textcolor>$PARAM[LabelColor]</textcolor>
-                <scrollsuffix>  •  </scrollsuffix>
                 <label>$VAR[WidgetLandscapeLabelVar]</label>
             </control>
             <!-- Label 2 layer -->
@@ -78,7 +77,6 @@
                 <align>center</align>
                 <font>WidgetLabel</font>
                 <textcolor>$PARAM[LabelColor]</textcolor>
-                <scrollsuffix>  •  </scrollsuffix>
                 <label>$INFO[ListItem.TVShowTitle]</label>
             </control>
             <!-- Progress bar layer -->

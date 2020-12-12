@@ -87,7 +87,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.Year]</label>
         </control>
         <control type="label">
@@ -99,7 +98,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.Rating]</label>
         </control>
         <control type="label">
@@ -111,7 +109,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.UserRating]</label>
         </control>
         <control type="label">
@@ -123,7 +120,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.MPAA]</label>
         </control>
         <control type="label">
@@ -135,7 +131,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.Duration(mins),, mins]</label>
         </control>
         <control type="label">
@@ -147,7 +142,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.DateAdded]</label>
         </control>
         <control type="label">
@@ -159,7 +153,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.PlayCount]</label>
         </control>
         <control type="label">
@@ -171,7 +164,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.Property(NumEpisodes),, episodes]</label>
         </control>
         <control type="label">
@@ -183,7 +175,6 @@
             <align>center</align>
             <font>ItemLabel</font>
             <textcolor>TextBright</textcolor>
-            <scrollsuffix>  •  </scrollsuffix>
             <label>$INFO[ListItem.LastPlayed]</label>
         </control>
     </include>

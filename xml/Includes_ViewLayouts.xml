@@ -73,7 +73,6 @@
                     <align>center</align>
                     <font>ItemLabel</font>
                     <textcolor>TextDim</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <label>$INFO[ListItem.label]</label>
                 </control>
                 <control type="label">
@@ -85,7 +84,6 @@
                     <align>center</align>
                     <font>ItemLabel</font>
                     <textcolor>TextBright</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <label>$INFO[ListItem.label]</label>
                 </control>
             </control>
@@ -98,7 +96,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.Title]</label>
             </control>
             <control type="group">
@@ -194,7 +191,6 @@
                     <align>center</align>
                     <font>ItemLabel</font>
                     <textcolor>TextDim</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <label>$INFO[ListItem.label]</label>
                 </control>
                 <control type="label">
@@ -206,7 +202,6 @@
                     <align>center</align>
                     <font>ItemLabel</font>
                     <textcolor>TextBright</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <label>$INFO[ListItem.label]</label>
                 </control>
             </control>
@@ -219,7 +214,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.Title]</label>
             </control>
             <control type="group">
@@ -352,7 +346,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.label]</label>
             </control>
             <control type="label">
@@ -364,7 +357,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.label]</label>
             </control>
             <!-- Progress bar layer -->
@@ -456,7 +448,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.label]</label>
             </control>
             <control type="label">
@@ -468,7 +459,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.label]</label>
             </control>
             <!-- Album year layer -->
@@ -481,7 +471,6 @@
                 <align>center</align>
                 <font>ItemLabelSecondary</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.year]</label>
             </control>
         </control>
@@ -625,7 +614,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
             </control>
             <control type="label">
@@ -638,7 +626,6 @@
                 <align>center</align>
                 <font>ItemLabel</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
             </control>
             <!-- Progress bar layer -->
@@ -754,7 +741,6 @@
                 <align>left</align>
                 <font>ItemLabel</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
             </control>
             <control type="label">
@@ -766,7 +752,6 @@
                 <align>left</align>
                 <font>ItemLabel</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$VAR[EpsNumber]. $INFO[ListItem.Title]</label>
             </control>
             <!-- Info layer -->
@@ -779,7 +764,6 @@
                 <align>left</align>
                 <font>InfoLine</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.Duration(mins),, mins]$VAR[VideoResolution]$VAR[AudioCodec]$VAR[AudioChannels]</label>
             </control>
             <control type="label">
@@ -791,7 +775,6 @@
                 <align>right</align>
                 <font>InfoLine</font>
                 <textcolor>TextBright</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.Premiered]</label>
             </control>
             <control type="label">
@@ -803,7 +786,6 @@
                 <align>left</align>
                 <font>InfoLine</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.Duration(mins),, mins]$VAR[VideoResolution]$VAR[AudioCodec]$VAR[AudioChannels]</label>
             </control>
             <control type="label">
@@ -815,7 +797,6 @@
                 <align>right</align>
                 <font>InfoLine</font>
                 <textcolor>TextDim</textcolor>
-                <scrollsuffix>•</scrollsuffix>
                 <label>$INFO[ListItem.Premiered]</label>
             </control>
             <!-- Plot layer -->
@@ -916,7 +897,6 @@
                     <align>center</align>
                     <font>ItemLabelSecondary</font>
                     <textcolor>TextDim</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <label>$INFO[ListItem.label]</label>
                 </control>
                 <control type="label">
@@ -928,7 +908,6 @@
                     <align>center</align>
                     <font>MenuItemSmall</font>
                     <textcolor>TextDim</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <label>as $INFO[ListItem.label2]</label>
                 </control>
             </control>
@@ -942,7 +921,6 @@
                     <align>center</align>
                     <font>ItemLabelSecondary</font>
                     <textcolor>TextBright</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <scroll>true</scroll>
                     <label>$INFO[ListItem.label]</label>
                 </control>
@@ -955,7 +933,6 @@
                     <align>center</align>
                     <font>MenuItemSmall</font>
                     <textcolor>TextDim</textcolor>
-                    <scrollsuffix>•</scrollsuffix>
                     <scroll>true</scroll>
                     <label>as $INFO[ListItem.label2]</label>
                 </control>
